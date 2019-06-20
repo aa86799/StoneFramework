@@ -1,0 +1,126 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'com.jakewharton.butterknife'
+
+
+android {
+    compileSdkVersion buildVersions.compileSdkVersion
+    defaultConfig {
+        applicationId "com.stone.framework"
+        minSdkVersion buildVersions.minSdkVersion
+        targetSdkVersion buildVersions.targetSdkVersion
+        versionCode buildVersions.versionCode
+        versionName buildVersions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //ARouter
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+//    kotlinOptions {
+//        jvmTarget = '1.8'
+//    }
+}
+
+//ARouter
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation refs.testRunner
+    androidTestImplementation refs.espresso
+    testImplementation refs.junit
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation refs.androidxCompat
+    implementation refs.ktx
+
+    implementation refs.butterknife
+    //If you are using Kotlin, replace annotationProcessor with kapt.
+    kapt refs.butterknifeCompiler
+
+    implementation refs.dagger
+    kapt refs.daggerCompiler
+
+    implementation refs.arouter
+    kapt refs.arouterApt
+
+    implementation refs.utilcode
+
+    implementation refs.retrofit
+    implementation refs.retrofitConverterScalars
+    implementation refs.retrofitConverterGson
+    implementation refs.retrofitAdapterRxjava
+    implementation refs.retrofitUrlManage
+
+    implementation refs.gson
+    implementation refs.fastjson
+    implementation refs.okhttp
+    implementation refs.okhttpLogInterceptor
+    implementation refs.okio
+
+    implementation refs.brvah
+    implementation refs.smartRefreshLayout
+    implementation refs.fragmentationx
+    implementation refs.fragmentationxSwipeback
+
+    implementation refs.rxjava
+    implementation refs.rxandroid
+    implementation refs.rxkotlin
+    implementation refs.rxpermissions
+    implementation refs.rxbinding
+    implementation refs.rxlifecycleComponents
+    implementation refs.rxlifecycleKotlin
+
+    implementation refs.hdoCircleImageview
+
+    debugImplementation refs.leakcanary
+
+    implementation refs.androidPickerView
+    implementation refs.apvWheelView
+    implementation refs.venshineWheelView
+
+    implementation refs.glide
+    implementation refs.glideOkhttp
+    kapt refs.glideCompiler
+
+    implementation refs.orhLogger
+
+    implementation refs.bgaqrcodeZxing
+
+    implementation refs.matisse
+
+    implementation refs.androidAutoSize
+
+    implementation refs.glidTransformations
+
+    implementation refs.flowLayout
+
+    implementation refs.immersionbar
+
+}
