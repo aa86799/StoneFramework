@@ -15,11 +15,12 @@ class MainPresenter: MainContract.Presenter() {
             .compose(RxJavaUtil.dataObj<List<HomeEntity>>())//这个java调用时反过来的，泛型在后面
             .subscribe({ result ->
                 if (result.isSuccess) {
-                   mView?.showMsg(result.data.size.toString())
+//                   mView?.showMsg(result.data.size.toString())
+                    mView?.showMsg(App.getInstance()?.getString(R.string.system_error)!!)
                 }
             }, { error ->
                 error.printStackTrace()
-                mView?.showMsg(App.getInstance()?.getString(R.string.system_error))
+                mView?.showMsg(App.getInstance()?.getString(R.string.system_error)!!)
             });
 
     }

@@ -44,12 +44,14 @@ abstract class BaseDialogFragment<P : BasePresenter<*>> : BaseCompatDialogFragme
         }
     }
 
-    override fun showMsg(msg: String?) {
-        ToastUtils.showShort(msg)
+    override fun showMsg(msg: String) {
+//        ToastUtils.showShort(msg)
+        (activity as BaseActivity<*>).showMsg(msg)
     }
 
     override fun showMsg(msgResId: Int) {
-        ToastUtils.showShort(msgResId)
+//        ToastUtils.showShort(msgResId)
+        (activity as BaseActivity<*>).showMsg(msgResId)
     }
 
     protected fun navBuild(path: String): Postcard {

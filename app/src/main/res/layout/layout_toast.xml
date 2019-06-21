@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/layout_toast_tv"
+            android:background="@drawable/bg_circle_corner_solid_gray"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            tools:text="  发生了一点问题，\n工程师正在紧急修复中  "
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:layout_height="60dp"/>
+</RelativeLayout>

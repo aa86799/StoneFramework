@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">StoneFramework</string>
 
+    <string name="toast_placeholder">&#160;&#160;&#160;&#160;%s&#160;&#160;&#160;&#160;</string>
     <string name="system_error">发生了一点问题，工程师正在紧急修复中</string>
 </resources>

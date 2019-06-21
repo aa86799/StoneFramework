@@ -22,6 +22,11 @@ class ActivityMain : BaseActivity<MainPresenter>(), MainContract.View {
             .inject(this)
 
         mPresenter?.getData()
+
     }
 
+    override fun onDestroy() {
+        cancelToastWidget()
+        super.onDestroy()
+    }
 }
