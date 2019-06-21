@@ -1,4 +1,4 @@
-package com.stone.framework.base
+package com.stone.framework.frame.compat
 
 import android.content.Context
 import android.os.Bundle
@@ -13,6 +13,7 @@ import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.alibaba.android.arouter.launcher.ARouter
 import com.gyf.immersionbar.ImmersionBar
+import com.stone.framework.R
 import com.trello.rxlifecycle3.LifecycleProvider
 import com.trello.rxlifecycle3.LifecycleTransformer
 import com.trello.rxlifecycle3.RxLifecycle
@@ -29,7 +30,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator
  * email  : aa86799@163.com
  * time   : 2019/6/20 14:18
  */
-abstract class BaseAppCompatActivity: AppCompatActivity(), ISupportActivity, LifecycleProvider<ActivityEvent> {
+abstract class BaseCompatActivity: AppCompatActivity(), ISupportActivity, LifecycleProvider<ActivityEvent> {
 
     private var mUnbinder: Unbinder? = null
 
@@ -50,8 +51,10 @@ abstract class BaseAppCompatActivity: AppCompatActivity(), ISupportActivity, Lif
         //沉浸状态栏
         ImmersionBar
             .with(this)
+            .transparentStatusBar()
             .fitsSystemWindows(true)
-            .statusBarColor(android.R.color.transparent)
+            .statusBarColor(R.color.colorPrimary)
+            .init()
 
         lifecycleSubject.onNext(ActivityEvent.CREATE)
 

@@ -7,9 +7,17 @@ import leakcanary.LeakSentry
 
 class App : Application() {
 
+    companion object {//静态内部类
+        private var instance: App? = null
+        fun getInstance(): App? {
+            return instance
+        }
+    }
 
     override fun onCreate() {
         super.onCreate()
+
+        instance = this
 
         initLeakCanary()
 

@@ -3,21 +3,19 @@ package com.stone.framework.bean
 import javax.inject.Inject
 
 class User {
-     var name: String? = null
+    var name: String? = null
 
     @Inject
     constructor() {
     }
 
-//    @Inject
+//    @Inject  //只能有一个用于构造函数
     constructor(name: String) {
         this.name = name
     }
 
     override fun toString(): String {
-        return super.toString()+"User(name='$name')"
+        return super.toString() + "User(name='$name')"
     }
-
-
 
 }

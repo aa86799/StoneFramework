@@ -1,13 +1,18 @@
-package com.stone.framework.base
+package com.stone.framework.frame.compat
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.Animation
 import androidx.annotation.CallSuper
 import androidx.annotation.CheckResult
 import androidx.fragment.app.Fragment
-import com.blankj.utilcode.util.ToastUtils
+import butterknife.ButterKnife
+import butterknife.Unbinder
+import com.alibaba.android.arouter.launcher.ARouter
+import com.stone.framework.frame.mvp.BaseView
 import com.trello.rxlifecycle3.LifecycleProvider
 import com.trello.rxlifecycle3.LifecycleTransformer
 import com.trello.rxlifecycle3.RxLifecycle
@@ -24,13 +29,57 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator
  * email  : aa86799@163.com
  * time   : 2019/6/20 18:26
  */
-abstract class BaseFragment: Fragment(), ISupportFragment, LifecycleProvider<FragmentEvent>, BaseView {
+abstract class BaseCompatFragment : Fragment(), ISupportFragment, LifecycleProvider<FragmentEvent>,
+    BaseView {
 
     private val lifecycleSubject = BehaviorSubject.create<FragmentEvent>()
 
     private val mDelegate = SupportFragmentDelegate(this)
 
     protected var _mActivity: SupportActivity? = null
+
+    private var mUnbinder: Unbinder? = null
+
+    private var isPrepared: Boolean = false
+    private var isFirstVisible = true
+    private var isFirstInvisible = true
+
+
+    abstract fun getLayoutId(): Int
+
+    abstract fun init()
+
+    abstract fun initPresenter()
+
+    @Synchronized
+    fun initPrepare() {
+        if (isPrepared) {
+            onFirstUserVisible()
+        } else {
+            isPrepared = true
+        }
+    }
+
+    /**
+     * 第一次fragment可见
+     */
+    abstract fun onFirstUserVisible()
+
+    /**
+     * fragment可见（切换回来或者onResume）
+     */
+    abstract fun onUserVisible()
+
+    /**
+     * 第一次fragment不可见
+     */
+    abstract fun onFirstUserInvisible()
+
+    /**
+     * fragment不可见（切换掉或者onPause）
+     */
+    abstract fun onUserInvisible()
+
 
     @CheckResult
     override fun lifecycle(): Observable<FragmentEvent> {
@@ -61,6 +110,16 @@ abstract class BaseFragment: Fragment(), ISupportFragment, LifecycleProvider<Fra
         super.onCreate(savedInstanceState)
         lifecycleSubject.onNext(FragmentEvent.CREATE)
         mDelegate.onCreate(savedInstanceState)
+
+        ARouter.getInstance().inject(this)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val rootView = inflater.inflate(getLayoutId(), container, false)
+        mUnbinder = ButterKnife.bind(this, rootView)
+        initPresenter()
+        init()
+        return rootView
     }
 
     @CallSuper
@@ -115,14 +174,6 @@ abstract class BaseFragment: Fragment(), ISupportFragment, LifecycleProvider<Fra
         super.onDetach()
     }
 
-    override fun showMsg(msg: String) {
-        ToastUtils.showShort(msg)
-    }
-
-    override fun showMsg(msgResId: Int) {
-        ToastUtils.showShort(msgResId)
-    }
-
     override fun getSupportDelegate(): SupportFragmentDelegate {
         return mDelegate
     }
@@ -142,6 +193,7 @@ abstract class BaseFragment: Fragment(), ISupportFragment, LifecycleProvider<Fra
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mDelegate.onActivityCreated(savedInstanceState)
+        initPrepare() //第一次置isPrepared=true
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -154,9 +206,29 @@ abstract class BaseFragment: Fragment(), ISupportFragment, LifecycleProvider<Fra
         mDelegate.onHiddenChanged(hidden)
     }
 
+    /**
+     * isVisibleToUser：true，表示frag可见；false，表示frag不可见
+     *
+     */
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         mDelegate.setUserVisibleHint(isVisibleToUser)
+
+        if (isVisibleToUser) {
+            if (isFirstVisible) {
+                isFirstVisible = false
+                initPrepare()
+            } else {
+                onUserVisible()
+            }
+        } else {
+            if (isFirstInvisible) {
+                isFirstInvisible = false
+                onFirstUserInvisible()
+            } else {
+                onUserInvisible()
+            }
+        }
     }
 
     /**
@@ -504,4 +576,5 @@ abstract class BaseFragment: Fragment(), ISupportFragment, LifecycleProvider<Fra
     fun <T : ISupportFragment> findChildFragment(fragmentClass: Class<T>): T {
         return SupportHelper.findFragment(childFragmentManager, fragmentClass)
     }
+
 }

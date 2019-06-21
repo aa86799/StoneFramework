@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">StoneFramework</string>
+
+    <string name="system_error">发生了一点问题，工程师正在紧急修复中</string>
 </resources>
