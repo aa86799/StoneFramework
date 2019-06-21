@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.launcher.ARouter
-import com.blankj.utilcode.util.ToastUtils
 import com.stone.framework.R
 import com.stone.framework.frame.compat.BaseCompatActivity
 import com.stone.framework.frame.mvp.BasePresenter

@@ -2,7 +2,6 @@ package com.stone.framework.frame
 
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.launcher.ARouter
-import com.blankj.utilcode.util.ToastUtils
 import com.stone.framework.frame.compat.BaseCompatFragment
 import com.stone.framework.frame.mvp.BasePresenter
 import com.stone.framework.frame.mvp.BaseView
