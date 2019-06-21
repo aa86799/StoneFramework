@@ -8,4 +8,6 @@
 
     <color name="gray">#BEBEBE</color>
     <color name="light_gray">#D3D3D3</color>
+    <color name="gray_70">#707070</color>
+    <color name="gray_a0">#a0dfdfdf</color>
 </resources>
