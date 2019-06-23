@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <!-- https://material.io/tools/color/#!/?view.left=0&view.right=0 -->
+    <!--action bar, tool bar-->
+    <color name="colorPrimary">#0081b8</color>
+    <!--status bar-->
+    <color name="colorPrimaryDark">#3FB0EB</color>
+    <color name="colorPrimaryLight">#7de2ff</color>
+
     <color name="colorAccent">#D81B60</color>
+    <!--action bar, tool bar, text color-->
+    <color name="textColorPrimary">@color/white</color>
+    <!--导航栏，(回退/home/最近打开应用) 颜色-->
+    <color name="navigationBarColor">@color/colorPrimaryLight</color>
+
 
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent">@android:color/transparent</color>
 
     <color name="gray">#BEBEBE</color>
     <color name="light_gray">#D3D3D3</color>

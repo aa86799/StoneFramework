@@ -1,6 +1,7 @@
 package com.stone.framework.frame.compat
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
@@ -11,7 +12,6 @@ import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.ButterKnife
 import butterknife.Unbinder
-import com.alibaba.android.arouter.launcher.ARouter
 import com.gyf.immersionbar.ImmersionBar
 import com.stone.framework.R
 import com.trello.rxlifecycle3.LifecycleProvider
@@ -40,31 +40,36 @@ abstract class BaseCompatActivity: AppCompatActivity(), ISupportActivity, Lifecy
 
     abstract fun getLayoutId(): Int
 
+    abstract fun initToolBar()
+
     abstract fun init()
 
     abstract fun initPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mDelegate.onCreate(savedInstanceState)
-
         //沉浸状态栏
         ImmersionBar
             .with(this)
             .transparentStatusBar()
-            .fitsSystemWindows(true)
-            .statusBarColor(R.color.colorPrimary)
+                //当该属性设置 true 时，会在屏幕最上方预留出状态栏高度的 padding。
+            .fitsSystemWindows(false)
+//            .statusBarColor(R.color.colorPrimary)
+            .statusBarColor(R.color.transparent)
             .init()
+
+        super.onCreate(savedInstanceState)
+        mDelegate.onCreate(savedInstanceState)
 
         lifecycleSubject.onNext(ActivityEvent.CREATE)
 
-        ARouter.getInstance().inject(this)
+//        ARouter.getInstance().inject(this)
 
         val rootView = layoutInflater.inflate(this.getLayoutId(), null, false)
         setContentView(rootView)
         mUnbinder = ButterKnife.bind(this)
 
         initPresenter()
+        initToolBar()
         init()
     }
 

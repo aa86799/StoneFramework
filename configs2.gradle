@@ -31,7 +31,8 @@ versions.ktx = '1.0.2'
 versions.androidxCompat = "1.0.2"
 
 //阿里界面路由. url: https://github.com/alibaba/ARouter
-versions.arouter = '1.4.1'
+//与 kotlin 的兼容性，还是有问题
+versions.arouter = '1.5.0'
 versions.arouterApt = '1.2.2'
 //工具类集. url: https://github.com/Blankj/AndroidUtilCode
 versions.utilcode = '1.23.6'

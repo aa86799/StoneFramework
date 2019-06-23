@@ -1,7 +1,5 @@
 package com.stone.framework.frame
 
-import com.alibaba.android.arouter.facade.Postcard
-import com.alibaba.android.arouter.launcher.ARouter
 import com.stone.framework.frame.compat.BaseCompatFragment
 import com.stone.framework.frame.mvp.BasePresenter
 import com.stone.framework.frame.mvp.BaseView
@@ -53,13 +51,13 @@ abstract class BaseFragment<P : BasePresenter<*>> : BaseCompatFragment(), ISuppo
         (activity as BaseActivity<*>).showMsg(msgResId)
     }
 
-    protected fun navBuild(path: String): Postcard {
-        return ARouter.getInstance().build(path)
-    }
-
-    protected fun navigation(path: String): Any {
-        return ARouter.getInstance().build(path).navigation()
-    }
+//    protected fun navBuild(path: String): Postcard {
+//        return ARouter.getInstance().build(path)
+//    }
+//
+//    protected fun navigation(path: String): Any {
+//        return ARouter.getInstance().build(path).navigation()
+//    }
 
     override fun onDestroy() {
         mPresenter?.detachView()

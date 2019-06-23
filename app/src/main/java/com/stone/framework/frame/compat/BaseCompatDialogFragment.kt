@@ -11,7 +11,6 @@ import androidx.annotation.CheckResult
 import androidx.fragment.app.DialogFragment
 import butterknife.ButterKnife
 import butterknife.Unbinder
-import com.alibaba.android.arouter.launcher.ARouter
 import com.stone.framework.frame.mvp.BaseView
 import com.trello.rxlifecycle3.LifecycleProvider
 import com.trello.rxlifecycle3.LifecycleTransformer
@@ -111,7 +110,7 @@ abstract class BaseCompatDialogFragment : DialogFragment(), ISupportFragment, Li
         lifecycleSubject.onNext(FragmentEvent.CREATE)
         mDelegate.onCreate(savedInstanceState)
 
-        ARouter.getInstance().inject(this)
+//        ARouter.getInstance().inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -44,11 +44,11 @@ android {
 }
 
 //ARouter
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
+//kapt {
+//    arguments {
+//        arg("AROUTER_MODULE_NAME", project.getName())
+//    }
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -67,8 +67,8 @@ dependencies {
     implementation refs.dagger
     kapt refs.daggerCompiler
 
-    implementation refs.arouter
-    kapt refs.arouterApt
+//    implementation refs.arouter
+//    kapt refs.arouterApt
 
     implementation refs.utilcode
 

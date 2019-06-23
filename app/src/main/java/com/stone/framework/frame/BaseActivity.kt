@@ -3,8 +3,7 @@ package com.stone.framework.frame
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
-import com.alibaba.android.arouter.facade.Postcard
-import com.alibaba.android.arouter.launcher.ARouter
+import androidx.appcompat.widget.Toolbar
 import com.stone.framework.R
 import com.stone.framework.frame.compat.BaseCompatActivity
 import com.stone.framework.frame.mvp.BasePresenter
@@ -47,6 +46,21 @@ abstract class BaseActivity<P : BasePresenter<*>> : BaseCompatActivity(), BaseVi
         }
     }
 
+    override fun initToolBar() {
+        val tb: Toolbar = findViewById(R.id.layout_header_toolbar) ?: return
+        setSupportActionBar(tb)
+        supportActionBar?.setDisplayShowTitleEnabled(false) //去除默认title显示
+
+        tb.findViewById<View>(R.id.layout_header_top_left_iv)
+            .setOnClickListener { finish() }
+//        tb.setNavigationIcon()
+//        tb.setNavigationOnClickListener {  }
+    }
+
+    protected fun onFinish() {
+        finish()
+    }
+
     private fun initToastWidget() {
         if (null == toastWidget) {
             val view = View.inflate(this, R.layout.layout_toast, null)
@@ -83,13 +97,13 @@ abstract class BaseActivity<P : BasePresenter<*>> : BaseCompatActivity(), BaseVi
         toastWidget?.showShort()
     }
 
-    protected fun navBuild(path: String): Postcard {
+   /* protected fun navBuild(path: String): Postcard {
         return ARouter.getInstance().build(path)
     }
 
     protected fun navigation(path: String): Any {
         return ARouter.getInstance().build(path).navigation()
-    }
+    }*/
 
     protected fun cancelToastWidget() {
         toastWidget?.cancel() //通常只在退出应用前的一个Activity中调用，如 MainActivity中
