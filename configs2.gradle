@@ -19,8 +19,10 @@ versions.espresso = '3.2.0'
 
 //安卓兼容包，未来是 androidx
 versions.supportAppcompat = '28.0.0'
-//官方约束布局
-versions.constraintLayout = '1.1.3'
+//官方约束布局.  url: https://dl.google.com/dl/android/maven2/index.html
+//versions.constraintLayout = '1.1.4'
+versions.constraintLayout = '2.0.0-beta2'
+versions.recyclerviewX = '1.0.0'
 //官方多 dex 分包. doc: https://developer.android.com/studio/build/multidex
 versions.multidex = '1.0.3'
 //官方架构组件扩展兼容包
@@ -207,6 +209,7 @@ refs.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
 refs.supportAppcompat = "com.android.support:appcompat-v7:$versions.supportAppcompat"
 refs.design = "com.android.support:design:$versions.supportAppcompat"
 refs.recyclerview = "com.android.support:recyclerview-v7:$versions.supportAppcompat"
+refs.recyclerviewX = "androidx.recyclerview:recyclerview:$versions.recyclerviewX"
 refs.cardview = "com.android.support:cardview-v7:$versions.supportAppcompat"
 refs.constraintLayout = "com.android.support.constraint:constraint-layout:$versions.constraintLayout"
 refs.multidex = "com.android.support:multidex:$versions.multidex"

@@ -41,7 +41,7 @@
         <!--android:layout_height="30dp"-->
         <!--android:layout_alignParentRight="true"-->
         <!--android:layout_centerVertical="true"-->
-        <!--android:background="@drawable/bg_circle_corner_solid_white"-->
+        <!--android:background="@drawable/bg_circle_corner_solid_white_20dp"-->
         <!--android:gravity="center"-->
         <!--android:paddingLeft="8dp"-->
         <!--android:paddingRight="15dp"-->
@@ -56,7 +56,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/bg_circle_corner_solid_white"
+                android:background="@drawable/bg_circle_corner_solid_white_20dp"
                 android:layout_height="30dp">
 
             <androidx.appcompat.widget.AppCompatImageView

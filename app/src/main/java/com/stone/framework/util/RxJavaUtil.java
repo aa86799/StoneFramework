@@ -2,10 +2,10 @@ package com.stone.framework.util;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.stone.framework.bean.api.BeanResponse;
-import com.stone.framework.frame.BaseActivity;
-import com.stone.framework.frame.BaseDialogFragment;
-import com.stone.framework.frame.compat.BaseCompatFragment;
-import com.stone.framework.frame.mvp.BaseView;
+import com.stone.framework.ui.base.BaseActivity;
+import com.stone.framework.ui.base.BaseDialogFragment;
+import com.stone.lib.common.mvp.BaseView;
+import com.stone.lib.common.ui.base.BaseCompatFragment;
 import com.trello.rxlifecycle3.android.ActivityEvent;
 import com.trello.rxlifecycle3.android.FragmentEvent;
 import io.reactivex.ObservableTransformer;

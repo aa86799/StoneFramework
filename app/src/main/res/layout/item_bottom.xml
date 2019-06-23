@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        tools:layout_width="100dp"
+        tools:layout_height="60dp"
+        android:orientation="vertical"
+        tools:background="@tools:sample/backgrounds/scenic"
+        android:layout_height="match_parent">
+
+    <!--上面用 weight，是因为再上一层是个水平的 LinearLayout，本布局用作 item，需要平分宽度-->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_bottom_icon_iv"
+            android:layout_width="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+            android:id="@+id/item_bottom_desc_tv"
+            android:text="desc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"/>
+</androidx.appcompat.widget.LinearLayoutCompat>

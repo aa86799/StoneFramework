@@ -26,14 +26,14 @@
             android:theme="@style/AppTheme">
 
 
-        <activity android:name=".ui.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme">
+        <activity android:name="com.stone.framework.ui.activity.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.main.ActivityMain" android:screenOrientation="portrait"/>
+        <activity android:name="com.stone.framework.ui.activity.main.ActivityMain" android:screenOrientation="portrait"/>
 
         <provider
                 android:name="androidx.core.content.FileProvider"

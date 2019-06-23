@@ -57,10 +57,7 @@ dependencies {
     testImplementation refs.junit
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation refs.androidxCompat
-    implementation refs.ktx
 
-    implementation refs.butterknife
     //If you are using Kotlin, replace annotationProcessor with kapt.
     kapt refs.butterknifeCompiler
 
@@ -69,8 +66,6 @@ dependencies {
 
 //    implementation refs.arouter
 //    kapt refs.arouterApt
-
-    implementation refs.utilcode
 
     implementation refs.retrofit
     implementation refs.retrofitConverterScalars
@@ -83,19 +78,6 @@ dependencies {
     implementation refs.okhttp
     implementation refs.okhttpLogInterceptor
     implementation refs.okio
-
-    implementation refs.brvah
-    implementation refs.smartRefreshLayout
-    implementation refs.fragmentationx
-    implementation refs.fragmentationxSwipeback
-
-    implementation refs.rxjava
-    implementation refs.rxandroid
-    implementation refs.rxkotlin
-    implementation refs.rxpermissions
-    implementation refs.rxbinding
-    implementation refs.rxlifecycleComponents
-    implementation refs.rxlifecycleKotlin
 
     implementation refs.hdoCircleImageview
 
@@ -111,6 +93,8 @@ dependencies {
 
     implementation refs.orhLogger
 
+    implementation refs.flycoTabLayout
+
     implementation refs.bgaqrcodeZxing
 
     implementation refs.matisse
@@ -119,8 +103,6 @@ dependencies {
 
     implementation refs.glidTransformations
 
-    implementation refs.flowLayout
-
-    implementation refs.immersionbar
+    implementation project(":lib_common")
 
 }
