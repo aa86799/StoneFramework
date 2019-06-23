@@ -7,7 +7,7 @@ import butterknife.BindView
 import com.flyco.tablayout.SegmentTabLayout
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.stone.framework.R
-import com.stone.framework.ui.fragment.bottom.BottomItemFragments
+import com.stone.framework.ui.fragment.bottom.BottomItemFragment
 import com.stone.framework.ui.fragment.home.collect.FragmentCollect
 
 /**
@@ -17,7 +17,7 @@ import com.stone.framework.ui.fragment.home.collect.FragmentCollect
  * blog:    https://stone.blog.csdn.net
  * time:    2019-06-23 15:21
  */
-class FragmentHome : BottomItemFragments() {
+class FragmentHome: BottomItemFragment<HomePresenter>(), HomeContact.View {
 
     override fun onError() {
 
@@ -61,5 +61,6 @@ class FragmentHome : BottomItemFragments() {
         })
 
         loadMultipleRootFragment(R.id.fragment_main_fl, 0, *fragments.toTypedArray())
+
     }
 }

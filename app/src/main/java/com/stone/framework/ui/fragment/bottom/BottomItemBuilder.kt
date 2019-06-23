@@ -10,15 +10,15 @@ package com.stone.framework.ui.fragment.bottom
  */
 class BottomItemBuilder {
 
-    internal val ITEMS = mutableMapOf<BottomTabBean, BottomItemFragments>()
+    internal val ITEMS = mutableMapOf<BottomTabBean, BottomItemFragment<*>>()
 
 
-    fun addItem(tabBean: BottomTabBean, itemDelegate: BottomItemFragments): BottomItemBuilder {
+    fun addItem(tabBean: BottomTabBean, itemDelegate: BottomItemFragment<*>): BottomItemBuilder {
         ITEMS[tabBean] = itemDelegate
         return this
     }
 
-    fun addItems(items: MutableMap<BottomTabBean, BottomItemFragments>): BottomItemBuilder {
+    fun addItems(items: MutableMap<BottomTabBean, BottomItemFragment<*>>): BottomItemBuilder {
         ITEMS.clear()
         ITEMS.putAll(items)
         return this

@@ -1,13 +1,9 @@
-package com.stone.framework.ui.splash;
+package com.stone.framework.ui.fragment.home;
 
-import com.stone.framework.frame.mvp.BasePresenter;
-import com.stone.framework.frame.mvp.BaseView;
+import com.stone.lib.common.mvp.BasePresenter;
+import com.stone.lib.common.mvp.BaseView;
 
-/**
- * Created by cdy on 2017/12/13.
- */
-
-public interface SplashContact {
+public interface HomeContact {
 
     interface View extends BaseView {
 //        void showAdvImg(SplashEntity entity);

@@ -3,8 +3,7 @@ package com.stone.framework.ui.fragment.bottom
 import android.os.SystemClock
 import com.blankj.utilcode.util.ToastUtils
 import com.stone.framework.ui.base.BaseFragment
-import com.stone.framework.ui.fragment.home.HomeContact
-import com.stone.framework.ui.fragment.home.HomePresenter
+import com.stone.lib.common.mvp.BasePresenter
 
 /**
  * desc     : 底部菜单项
@@ -13,7 +12,7 @@ import com.stone.framework.ui.fragment.home.HomePresenter
  * email    : aa86799@163.com
  * time     : 2018/7/10 15 09
  */
-abstract class BottomItemFragments : BaseFragment<HomePresenter>(), HomeContact.View {
+abstract class BottomItemFragment<P : BasePresenter<*>> : BaseFragment<P> () {
 
     private var mExitTime: Long = 0
     private val EXIT_TIME = 2000

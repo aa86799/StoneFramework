@@ -26,8 +26,8 @@ import com.stone.framework.ui.fragment.home.FragmentHome
  */
 class BottomFragment : BaseFragment<BottomPresenter>(), OnClickListener, BottomContract.View {
 
-    private val fragments = mutableListOf<BottomItemFragments>()
-    private var items: MutableMap<BottomTabBean, BottomItemFragments>? = null
+    private val fragments = mutableListOf<BottomItemFragment<*>>()
+    private var items: MutableMap<BottomTabBean, BottomItemFragment<*>>? = null
     private var mCurrentDelegate: Int = 0 //当前显示的 delegate
     private var mClickColor = Color.RED
     private var mTextColor: Int = 0
@@ -43,8 +43,8 @@ class BottomFragment : BaseFragment<BottomPresenter>(), OnClickListener, BottomC
     /**
      * 设置底部 item 的集合
      */
-    fun setItems(builder: BottomItemBuilder): MutableMap<BottomTabBean, BottomItemFragments> {
-        val items = mutableMapOf<BottomTabBean, BottomItemFragments>()
+    fun setItems(builder: BottomItemBuilder): MutableMap<BottomTabBean, BottomItemFragment<*>> {
+        val items = mutableMapOf<BottomTabBean, BottomItemFragment<*>>()
         items[BottomTabBean(R.mipmap.ic_launcher, "首页")] = FragmentHome()
         items[BottomTabBean(R.mipmap.ic_launcher, "首2页")] = FragmentHome()
         return builder.addItems(items).ITEMS
