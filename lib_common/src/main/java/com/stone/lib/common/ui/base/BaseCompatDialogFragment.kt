@@ -19,7 +19,10 @@ import com.trello.rxlifecycle3.android.FragmentEvent
 import com.trello.rxlifecycle3.android.RxLifecycleAndroid
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
-import me.yokeyword.fragmentation.*
+import me.yokeyword.fragmentation.ExtraTransaction
+import me.yokeyword.fragmentation.ISupportFragment
+import me.yokeyword.fragmentation.SupportFragmentDelegate
+import me.yokeyword.fragmentation.SupportHelper
 import me.yokeyword.fragmentation.anim.FragmentAnimator
 
 /**
@@ -39,46 +42,13 @@ abstract class BaseCompatDialogFragment : DialogFragment(), ISupportFragment, Li
 
     private var mUnbinder: Unbinder? = null
 
-    private var isPrepared: Boolean = false
-    private var isFirstVisible = true
-    private var isFirstInvisible = true
-
+    protected var mRootView: View? = null
 
     abstract fun getLayoutId(): Int
 
     abstract fun init()
 
     abstract fun initPresenter()
-
-    @Synchronized
-    fun initPrepare() {
-        if (isPrepared) {
-            onFirstUserVisible()
-        } else {
-            isPrepared = true
-        }
-    }
-
-    /**
-     * 第一次fragment可见
-     */
-    abstract fun onFirstUserVisible()
-
-    /**
-     * fragment可见（切换回来或者onResume）
-     */
-    abstract fun onUserVisible()
-
-    /**
-     * 第一次fragment不可见
-     */
-    abstract fun onFirstUserInvisible()
-
-    /**
-     * fragment不可见（切换掉或者onPause）
-     */
-    abstract fun onUserInvisible()
-
 
     @CheckResult
     override fun lifecycle(): Observable<FragmentEvent> {
@@ -114,11 +84,11 @@ abstract class BaseCompatDialogFragment : DialogFragment(), ISupportFragment, Li
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(getLayoutId(), container, false)
-        mUnbinder = ButterKnife.bind(this, rootView)
+        mRootView = inflater.inflate(getLayoutId(), container, false)
+        mUnbinder = ButterKnife.bind(this, mRootView!!)
         initPresenter()
         init()
-        return rootView
+        return mRootView
     }
 
     @CallSuper
@@ -192,7 +162,6 @@ abstract class BaseCompatDialogFragment : DialogFragment(), ISupportFragment, Li
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mDelegate.onActivityCreated(savedInstanceState)
-        initPrepare() //第一次置isPrepared=true
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -213,21 +182,6 @@ abstract class BaseCompatDialogFragment : DialogFragment(), ISupportFragment, Li
         super.setUserVisibleHint(isVisibleToUser)
         mDelegate.setUserVisibleHint(isVisibleToUser)
 
-        if (isVisibleToUser) {
-            if (isFirstVisible) {
-                isFirstVisible = false
-                initPrepare()
-            } else {
-                onUserVisible()
-            }
-        } else {
-            if (isFirstInvisible) {
-                isFirstInvisible = false
-                onFirstUserInvisible()
-            } else {
-                onUserInvisible()
-            }
-        }
     }
 
     /**

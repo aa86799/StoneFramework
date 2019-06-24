@@ -197,8 +197,15 @@ versions.flowLayout = '1.1.2'
 //android 4.4以上沉浸式状态栏和沉浸式导航栏管理. url: https://github.com/gyf-dev/ImmersionBar
 versions.immersionbar = '3.0.0-beta05'
 
+//腾讯插件化框架. url: https://github.com/Tencent/Shadow
+//需要下载工程，自行研究下
+versions.shadow = ''
+
 //支持h5标准的 html 文件解析. url: https://github.com/jhy/jsoup
 versions.jsoup = '1.12.1'
+
+//阿里对flutter的再封装项目. url: https://github.com/alibaba/flutter-go
+//有自己的规范，需要单独学习
 
 /* -------------------------------- 类库引用: "group:name:version" -------------------------------------- */
 ext.refs = [:]

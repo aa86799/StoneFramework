@@ -11,7 +11,7 @@ import com.stone.framework.ui.fragment.bottom.BottomItemFragment
 import com.stone.framework.ui.fragment.home.collect.FragmentCollect
 
 /**
- * desc:
+ * desc:    首页
  * author:  stone
  * email:   aa86799@163.com
  * blog:    https://stone.blog.csdn.net

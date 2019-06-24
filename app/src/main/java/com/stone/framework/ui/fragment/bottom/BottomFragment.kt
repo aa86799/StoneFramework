@@ -15,6 +15,7 @@ import butterknife.BindView
 import com.stone.framework.R
 import com.stone.framework.ui.base.BaseFragment
 import com.stone.framework.ui.fragment.home.FragmentHome
+import com.stone.framework.ui.fragment.home.mine.FragmentMine
 
 /**
  * desc     : 底部菜单页，
@@ -45,8 +46,9 @@ class BottomFragment : BaseFragment<BottomPresenter>(), OnClickListener, BottomC
      */
     fun setItems(builder: BottomItemBuilder): MutableMap<BottomTabBean, BottomItemFragment<*>> {
         val items = mutableMapOf<BottomTabBean, BottomItemFragment<*>>()
-        items[BottomTabBean(R.mipmap.ic_launcher, "首页")] = FragmentHome()
-        items[BottomTabBean(R.mipmap.ic_launcher, "首2页")] = FragmentHome()
+        items[BottomTabBean(R.mipmap.ic_launcher, "我的订单")] = FragmentHome()
+        items[BottomTabBean(R.mipmap.ic_launcher, "待接单")] = FragmentHome()
+        items[BottomTabBean(R.mipmap.ic_launcher, "我的")] = FragmentMine()
         return builder.addItems(items).ITEMS
     }
 
