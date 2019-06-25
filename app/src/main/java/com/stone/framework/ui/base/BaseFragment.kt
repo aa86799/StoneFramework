@@ -40,6 +40,10 @@ abstract class BaseFragment<P : BasePresenter<*>> : BaseCompatFragment(), ISuppo
         }
     }
 
+    fun <T : BaseFragment<*>> getParentDelegate(): T {
+        return parentFragment as T
+    }
+
     override fun showMsg(msg: String) {
 //        ToastUtils.showShort(msg)
         (activity as BaseActivity<*>).showMsg(msg)
