@@ -1,8 +1,6 @@
 package com.stone.framework.di.module
 
-import com.stone.framework.bean.User
 import dagger.Module
-import dagger.Provides
 
 @Module
 class ActivityModule {

@@ -3,6 +3,7 @@ package com.stone.framework.ui.fragment.home.collect
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.stone.framework.R
+import com.stone.framework.bean.PendingOrderEntity
 
 /**
  * desc:
@@ -11,9 +12,9 @@ import com.stone.framework.R
  * blog:    https://stone.blog.csdn.net
  * time:    2019-06-23 19:02
  */
-class CollectAdapter : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_collect) {
+class CollectAdapter : BaseQuickAdapter<PendingOrderEntity, BaseViewHolder>(R.layout.item_collect) {
 
-    override fun convert(helper: BaseViewHolder?, item: String?) {
+    override fun convert(helper: BaseViewHolder?, item: PendingOrderEntity?) {
 //        helper?.setText(R.id.item_collect_time_tv, "")
 //        helper?.setText(R.id.item_collect_type_tv, "")
 //        helper?.setText(R.id.item_collect_trans_type_tv, "")

@@ -9,8 +9,6 @@ import leakcanary.LeakSentry
 
 class ActivityMain : BaseActivity<MainPresenter>(), MainContract.View {
 
-
-
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }

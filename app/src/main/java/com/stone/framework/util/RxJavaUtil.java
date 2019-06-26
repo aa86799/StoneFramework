@@ -40,7 +40,7 @@ public class RxJavaUtil {
      */
     public static <T> ObservableTransformer<BeanResponse, BeanResponse<T>> dataObj() {
         return upstream -> upstream.map((Function<BeanResponse, BeanResponse<T>>) result -> {
-            if (result.isSuccess()) {
+            if (result.getSuccess()) {
                 return result;
             } else {//失败，弹消息
                 ToastUtils.showShort(result.getMessage());

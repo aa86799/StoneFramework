@@ -5,9 +5,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.stone.framework.R
+import com.stone.framework.bean.PendingOrderEntity
+import com.stone.framework.bean.api.PageBean
 import com.stone.framework.ui.base.BaseDialogFragment
 
 class OrderFragmentDialog : BaseDialogFragment<CollectPresenter>(), CollectContact.View {
+    override fun showData(pageBean: PageBean<PendingOrderEntity>) {
+
+    }
+
 
     override fun onError() {
     }

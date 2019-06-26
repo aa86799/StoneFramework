@@ -1,6 +1,5 @@
 package com.stone.framework.config.api
 
-import android.content.Context
 import com.blankj.utilcode.util.AppUtils
 import com.stone.framework.App
 import okhttp3.Interceptor
@@ -10,11 +9,12 @@ object ApiHelper {
     private var retrofit: Retrofit? = null
 
     val URL_BASE = "http://api-iso.iloongpay.com"
+//    val URL_BASE = "http://192.168.1.115:8082"
     val URL_BASE_DOMAIN = "URL_BASE"
 
     fun service():ApiService {
         if (retrofit == null) {
-            print("是否多次执行")
+            println("ApiHelper#retrofit 初始化")
             val interceptors: List<Interceptor> = listOf(Interceptor { chain: Interceptor.Chain ->
                 val request = chain.request()
                     .newBuilder()

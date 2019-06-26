@@ -47,7 +47,7 @@ class FragmentHome: BottomItemFragment<HomePresenter>(), HomeContact.View {
 
         mTabLayout?.setTabData(arrayOf("待取件", "运输中", "已送达"))
 
-        val fragments = mutableListOf(FragmentCollect(0), FragmentCollect(1), FragmentCollect(2))
+        val fragments = mutableListOf(FragmentCollect("0"), FragmentCollect("1"), FragmentCollect("2"))
         mTabLayout?.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
                 showHideFragment(fragments[position], fragments[mCurrent])

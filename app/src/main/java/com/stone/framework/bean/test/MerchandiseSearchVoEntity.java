@@ -1,4 +1,4 @@
-package com.stone.framework.bean;
+package com.stone.framework.bean.test;
 
 import java.io.Serializable;
 

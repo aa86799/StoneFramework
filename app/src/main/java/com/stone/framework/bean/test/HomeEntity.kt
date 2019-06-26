@@ -1,11 +1,7 @@
-package com.stone.framework.bean
+package com.stone.framework.bean.test
 
 
 import java.io.Serializable
-
-/**
- * Created by cdy on 2017/12/6.
- */
 
 class HomeEntity : Serializable {
     //        setItemType(category);
@@ -52,6 +48,10 @@ class HomeEntity : Serializable {
         itemType = item
     }
 
+    override fun toString(): String {
+        return "HomeEntity(category=$category, categoryName=$categoryName, categoryType=$categoryType, imgUrl=$imgUrl, linkType=$linkType, linkValue=$linkValue, itemType=$itemType, list=$list, youLike1=$youLike1, youLike2=$youLike2)"
+    }
+
     inner class HomeFloorEntity : Serializable {
         var imgUrl: String? = null
         var linkType: String? = null
@@ -73,5 +73,12 @@ class HomeEntity : Serializable {
         var id: String? = null
         //        private String noticeContent;//新闻通知内容
         var typeName: String? = null//新闻通知内容
+
+        override fun toString(): String {
+            return "HomeFloorEntity(imgUrl=$imgUrl, linkType=$linkType, linkValue=$linkValue, maxPrice=$maxPrice, maxScore=$maxScore, minPrice=$minPrice, minScore=$minScore, name=$name, type=$type, id=$id, typeName=$typeName)"
+        }
+
     }
+
+
 }

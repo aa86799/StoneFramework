@@ -1,66 +1,59 @@
 package com.stone.framework.ui.fragment.home.collect
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.PopupWindow
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.scwang.smartrefresh.layout.api.RefreshLayout
-import com.stone.framework.R
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter
+import com.scwang.smartrefresh.layout.header.ClassicsHeader
+import com.stone.framework.bean.PendingOrderEntity
+import com.stone.framework.bean.api.PageBean
 import com.stone.framework.ui.base.BaseFragment
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
+
+
+
 
 /**
- * desc:
+ * desc:    待收件
  * author:  stone
  * email:   aa86799@163.com
  * blog:    https://stone.blog.csdn.net
  * time:    2019-06-23 18:41
  */
-class FragmentCollect(val mType: Int) : BaseFragment<CollectPresenter>(), CollectContact.View {
-
+class FragmentCollect(val mType: String) : BaseFragment<CollectPresenter>(), CollectContact.View {
 
     @JvmField
-    @BindView(R.id.layout_header_module_title_tv)
+    @BindView(com.stone.framework.R.id.layout_header_module_title_tv)
     var mTvTitle: TextView? = null
 
     @JvmField
-    @BindView(R.id.fragment_collect_srl)
+    @BindView(com.stone.framework.R.id.fragment_collect_srl)
     var mRefreshLayout: RefreshLayout? = null
 
     @JvmField
-    @BindView(R.id.fragment_collect_rv)
+    @BindView(com.stone.framework.R.id.fragment_collect_rv)
     var mRv: RecyclerView? = null
 
     private val mAdapter: CollectAdapter = CollectAdapter()
+
+    private var mCurrentPage = 1
 
     override fun onError() {
 
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_collect
+        return com.stone.framework.R.layout.fragment_collect
     }
 
     override fun init() {
         mRv?.layoutManager = LinearLayoutManager(context)
         mRv?.adapter = mAdapter
-
-        mAdapter.addData("")
-        mAdapter.addData("")
-        mAdapter.addData("")
-        mAdapter.addData("")
-        mAdapter.addData("")
-
-//        mPresenter.loadAdvData(mType)
 
         mAdapter.onItemClickListener =
             BaseQuickAdapter.OnItemClickListener { adapter, view, position ->
@@ -70,20 +63,75 @@ class FragmentCollect(val mType: Int) : BaseFragment<CollectPresenter>(), Collec
         mAdapter.onItemChildClickListener =
             BaseQuickAdapter.OnItemChildClickListener { baseQuickAdapter: BaseQuickAdapter<Any, BaseViewHolder>, view: View, i: Int ->
                 when (view.id) {
-                    R.id.item_collect_in_order_tv -> {
+                    com.stone.framework.R.id.item_collect_in_order_tv -> {
                         inOrder()
                     }
-                    R.id.item_collect_out_order_tv -> {
-                        showMsg("${mType * 100}")
+                    com.stone.framework.R.id.item_collect_out_order_tv -> {
+                        showMsg("${33 * 100}")
                     }
                 }
             }
+
+        mRefreshLayout?.setRefreshHeader(ClassicsHeader(context))
+        mRefreshLayout?.setRefreshFooter(ClassicsFooter(context))
+
+        mRefreshLayout?.setOnRefreshListener { refreshLayout ->
+            refreshLayout.resetNoMoreData()
+            //如下内部赋值 语法错误
+//            mPresenter?.loadData(mType, mCurrentPage = 1)
+
+            //如下，有没有run{}都可以，分成两部分了
+            run { mCurrentPage = 1; mPresenter?.loadData(mType, mCurrentPage) }
+
+        }
+
+        mRefreshLayout?.setOnLoadMoreListener{refreshLayout->
+            //可以的 ++表达式可以
+            mPresenter?.loadData(mType, ++mCurrentPage)
+        }
+
+//        mPresenter?.loadData(mType, mCurrentPage)
     }
 
     private fun inOrder() {//接单
         val dialog = OrderFragmentDialog()
         dialog.show(activity?.supportFragmentManager, "order-dialog")
     }
+
+    override fun showData(pageBean: PageBean<PendingOrderEntity>) {
+        pageBean ?: return //?: 左边表达式为空 才计算右边的
+//        if (pageBean == null) {
+//            return
+//        }
+
+        when (mCurrentPage) {
+            1 -> {
+                mAdapter.setNewData(pageBean.records)
+                if (pageBean.records?.size!! < pageBean.size) {
+                    //mRefreshLayout.finishRefreshWithNoMoreData()
+                    mRefreshLayout?.finishRefresh(500, true, true)
+                } else {
+                    mRefreshLayout?.finishRefresh(500)
+                }
+            }
+            else -> {
+                if (pageBean.records?.isEmpty()!!) {
+                    mCurrentPage--
+                }
+                mAdapter.addData(pageBean.records!!)
+                if (pageBean.records?.size!! < pageBean.size) {
+                    mRefreshLayout?.finishLoadMore(500, true, true)
+                    mRefreshLayout?.finishLoadMoreWithNoMoreData()
+                } else {
+                    mRefreshLayout?.finishLoadMore(500)
+                }
+            }
+        }
+
+        mAdapter.addData(PendingOrderEntity())
+        mAdapter.addData(PendingOrderEntity())
+    }
+
 
 //    private fun inOrder() {//接单
 //        // 用于PopupWindow的View
