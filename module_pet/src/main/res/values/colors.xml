@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- https://material.io/tools/color/#!/?view.left=0&view.right=0 -->
+    <!--action bar, tool bar-->
+    <color name="colorPrimary">#c0f890</color>
+    <!--status bar-->
+    <color name="colorPrimaryDark">#8ec561</color>
+    <color name="colorPrimaryLight">#f4ffc1</color>
+
+    <!--<color name="colorAccent">#D81B60</color>-->
+    <color name="colorAccent">#f8463f</color>
+    <!--action bar, tool bar, text color-->
+    <color name="textColorPrimary">@color/white</color>
+    <!--导航栏，(回退/home/最近打开应用) 颜色-->
+    <color name="navigationBarColor">@color/colorPrimaryLight</color>
+
+</resources>

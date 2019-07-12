@@ -5,7 +5,7 @@ import java.lang.ref.WeakReference
 
 abstract class BasePresenter<V : BaseView> {
 
-    protected var mContext: Context? = null
+//    private var mContext: Context? = null
     private var mViewRef: WeakReference<V>? = null
     var mView: V? = null
 
@@ -18,7 +18,4 @@ abstract class BasePresenter<V : BaseView> {
         mView = null
     }
 
-    fun setContext(context: Context) {
-        mContext = context
-    }
 }

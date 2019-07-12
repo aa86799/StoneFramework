@@ -1,4 +1,12 @@
-/* 主要会使用 kotlin androidx 相关库 */
+/* 会使用 kotlin androidx 相关库 */
+
+/* 组件化相关配置 */
+ext.component = [:] //map
+component.isModule = true //是否是 集成模式，即模块化. false 表示全部模块都变成组件式； true 表示是 全部模块化集成
+component.aIsModule = true //a模块是否 集成模式
+component.bIsModule = true //b模块是否 集成模式
+component.cIsModule = true //c模块是否 集成模式
+//...
 
 /* -------------------------------- 构建设置 -------------------------------------- */
 def buildVersions = [:] //map
@@ -23,6 +31,8 @@ versions.supportAppcompat = '28.0.0'
 //versions.constraintLayout = '1.1.4'
 versions.constraintLayout = '2.0.0-beta2'
 versions.recyclerviewX = '1.0.0'
+//原 design 包下的大部分类移到了这里，含有：appbar, tabLayout 等
+versions.material = '1.0.0'
 //官方多 dex 分包. doc: https://developer.android.com/studio/build/multidex
 versions.multidex = '1.0.3'
 //官方架构组件扩展兼容包
@@ -217,6 +227,7 @@ refs.supportAppcompat = "com.android.support:appcompat-v7:$versions.supportAppco
 refs.design = "com.android.support:design:$versions.supportAppcompat"
 refs.recyclerview = "com.android.support:recyclerview-v7:$versions.supportAppcompat"
 refs.recyclerviewX = "androidx.recyclerview:recyclerview:$versions.recyclerviewX"
+refs.material = "com.google.android.material:material:$versions.material"
 refs.cardview = "com.android.support:cardview-v7:$versions.supportAppcompat"
 refs.constraintLayout = "com.android.support.constraint:constraint-layout:$versions.constraintLayout"
 refs.multidex = "com.android.support:multidex:$versions.multidex"
