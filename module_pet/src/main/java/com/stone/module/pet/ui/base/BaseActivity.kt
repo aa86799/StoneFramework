@@ -8,6 +8,7 @@ import com.stone.module.pet.R
 import com.stone.lib.common.ui.base.BaseCompatActivity
 import com.stone.lib.common.mvp.BasePresenter
 import com.stone.lib.common.mvp.BaseView
+import com.stone.lib.common.util.ViewInjectUtil
 import com.stone.module.pet.widget.ToastWidget
 import java.lang.reflect.ParameterizedType
 
@@ -43,6 +44,8 @@ abstract class BaseActivity<P : BasePresenter<*>> : BaseCompatActivity(), BaseVi
 
             mPresenter?.attachView(this)
         }
+
+        ViewInjectUtil.injectViews(this)
     }
 
     override fun initToolBar() {

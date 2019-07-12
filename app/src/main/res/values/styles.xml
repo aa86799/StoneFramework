@@ -8,16 +8,5 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="SplashTheme" parent="AppTheme">
-        <item name="android:windowBackground">@mipmap/ic_launcher</item>
-    </style>
 
-    <style name="MyAppCompatDialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowSoftInputMode">stateAlwaysHidden</item>
-        <item name="android:windowNoTitle">true</item><!--无标题-->
-        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
 </resources>

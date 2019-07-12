@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.stone.module.pet.R
 import com.stone.module.pet.gilde.ImageUtil
@@ -14,6 +13,7 @@ import com.stone.module.pet.ui.base.BaseFragment
 import com.stone.module.pet.ui.fragment.bottom.BottomItemFragment
 import com.stone.module.pet.ui.fragment.userinfo.FragmentUserInfo
 import com.stone.lib.common.ui.widget.StarLayout
+import com.stone.lib.common.util.ViewInject
 import de.hdodenhof.circleimageview.CircleImageView
 
 /**
@@ -26,31 +26,31 @@ import de.hdodenhof.circleimageview.CircleImageView
 class FragmentMine : BottomItemFragment<MinePresenter>(), MineContact.View {
 
     @JvmField
-    @BindView(R.id.layout_header_top_left_iv)
+    @ViewInject(R.id.layout_header_top_left_iv)
     var mIvBack: ImageView? = null
 
     @JvmField
-    @BindView(R.id.layout_header_module_title_tv)
+    @ViewInject(R.id.layout_header_module_title_tv)
     var mTvTitle: TextView? = null
 
     @JvmField
-    @BindView(R.id.fragment_mine_user_iv)
+    @ViewInject(R.id.fragment_mine_user_iv)
     var mIvUser: CircleImageView? = null
 
     @JvmField
-    @BindView(R.id.fragment_mine_name_tv)
+    @ViewInject(R.id.fragment_mine_name_tv)
     var mTvName: TextView? = null
 
     @JvmField
-    @BindView(R.id.fragment_mine_score_tv)
+    @ViewInject(R.id.fragment_mine_score_tv)
     var mTvScore: TextView? = null
 
     @JvmField
-    @BindView(R.id.fragment_mine_star_sl)
+    @ViewInject(R.id.fragment_mine_star_sl)
     var starLayout: StarLayout? = null
 
     @JvmField
-    @BindView(R.id.fragment_mine_rv)
+    @ViewInject(R.id.fragment_mine_rv)
     var mRv: RecyclerView? = null
 
     private var mAdapter: SettingAdapter? = null

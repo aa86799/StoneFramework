@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.stone.lib.common.mvp.BaseView
+import com.stone.lib.common.util.ViewInjectUtil
 import com.trello.rxlifecycle3.LifecycleProvider
 import com.trello.rxlifecycle3.LifecycleTransformer
 import com.trello.rxlifecycle3.RxLifecycle
@@ -96,6 +97,7 @@ abstract class BaseCompatFragment : Fragment(), ISupportFragment, LifecycleProvi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lifecycleSubject.onNext(FragmentEvent.CREATE_VIEW)
+        ViewInjectUtil.injectViews(this)
         init()
     }
 

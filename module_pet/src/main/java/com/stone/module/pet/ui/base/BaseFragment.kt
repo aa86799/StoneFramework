@@ -6,7 +6,6 @@ import com.stone.lib.common.ui.base.BaseCompatFragment
 import com.trello.rxlifecycle3.LifecycleProvider
 import com.trello.rxlifecycle3.android.FragmentEvent
 import me.yokeyword.fragmentation.ISupportFragment
-import java.lang.Exception
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -37,6 +36,7 @@ abstract class BaseFragment<P : BasePresenter<*>> : BaseCompatFragment(), ISuppo
 
             mPresenter?.attachView(this)
         }
+
     }
 
     fun <T : BaseFragment<*>> getParentDelegate(): T {
@@ -65,4 +65,5 @@ abstract class BaseFragment<P : BasePresenter<*>> : BaseCompatFragment(), ISuppo
         mPresenter?.detachView()
         super.onDestroy()
     }
+
 }

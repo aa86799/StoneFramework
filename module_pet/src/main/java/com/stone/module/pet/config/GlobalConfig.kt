@@ -1,6 +1,6 @@
 package com.stone.module.pet.config
 
-import com.stone.module.pet.App
+import component.App
 
 object GlobalConfig {
 

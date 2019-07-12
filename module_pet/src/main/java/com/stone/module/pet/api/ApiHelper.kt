@@ -1,7 +1,7 @@
 package com.stone.module.pet.api
 
 import com.blankj.utilcode.util.AppUtils
-import com.stone.module.pet.App
+import component.App
 import okhttp3.Interceptor
 import retrofit2.Retrofit
 

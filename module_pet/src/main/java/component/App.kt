@@ -1,4 +1,4 @@
-package com.stone.module.pet
+package component
 
 import android.app.Application
 import leakcanary.LeakCanary

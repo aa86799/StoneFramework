@@ -38,6 +38,7 @@ abstract class BaseDialogFragment<P : BasePresenter<*>> : BaseCompatDialogFragme
 
             mPresenter?.attachView(this)
         }
+
     }
 
     override fun showMsg(msg: String) {
@@ -62,4 +63,5 @@ abstract class BaseDialogFragment<P : BasePresenter<*>> : BaseCompatDialogFragme
         mPresenter?.detachView()
         super.onDestroy()
     }
+
 }

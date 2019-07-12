@@ -1,4 +1,9 @@
-apply plugin: 'com.android.application'
+if (component.isModule.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
 
 apply plugin: 'kotlin-android'
 
@@ -6,18 +11,21 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: 'com.jakewharton.butterknife'
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion buildVersions.compileSdkVersion
     defaultConfig {
-        applicationId "com.stone.module.pet"
+        if (!component.isModule.toBoolean()) {
+            applicationId "com.stone.module.pet"
+        }
         minSdkVersion buildVersions.minSdkVersion
         targetSdkVersion buildVersions.targetSdkVersion
         versionCode buildVersions.versionCode
         versionName buildVersions.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -32,6 +40,19 @@ android {
         targetCompatibility = 1.8
     }
 
+    sourceSets {
+        main {
+            if (component.isModule.toBoolean()) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/component/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'component/**'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -41,9 +62,10 @@ dependencies {
     testImplementation refs.junit
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     //If you are using Kotlin, replace annotationProcessor with kapt.
-    kapt refs.butterknifeCompiler
+//    kapt refs.butterknifeCompiler
 
     implementation refs.dagger
     kapt refs.daggerCompiler
@@ -88,4 +110,6 @@ dependencies {
     implementation refs.glidTransformations
 
     implementation project(":lib_common")
+    implementation project(":lib_annotations")
+    kapt project(":lib_compile")
 }

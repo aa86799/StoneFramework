@@ -2,7 +2,7 @@
 
 /* 组件化相关配置 */
 ext.component = [:] //map
-component.isModule = true //是否是 集成模式，即模块化. false 表示全部模块都变成组件式； true 表示是 全部模块化集成
+component.isModule = false //是否是 集成模式，即模块化. false 表示全部模块都变成组件式； true 表示是 全部模块化集成
 component.aIsModule = true //a模块是否 集成模式
 component.bIsModule = true //b模块是否 集成模式
 component.cIsModule = true //c模块是否 集成模式

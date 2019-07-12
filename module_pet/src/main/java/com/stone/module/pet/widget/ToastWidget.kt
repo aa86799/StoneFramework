@@ -2,7 +2,7 @@ package com.stone.module.pet.widget
 
 import android.view.View
 import android.widget.Toast
-import com.stone.module.pet.App
+import component.App
 
 class ToastWidget private constructor(builder: Builder) {
 

@@ -4,7 +4,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.scwang.smartrefresh.layout.api.RefreshLayout
@@ -13,6 +12,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import com.stone.module.pet.bean.api.PageBean
 import com.stone.module.pet.bean.test.PendingOrderEntity
 import com.stone.module.pet.ui.base.BaseFragment
+import com.stone.lib.common.util.ViewInject
 
 
 /**
@@ -25,15 +25,15 @@ import com.stone.module.pet.ui.base.BaseFragment
 class FragmentCollect(val mType: String) : BaseFragment<CollectPresenter>(), CollectContact.View {
 
     @JvmField
-    @BindView(com.stone.module.pet.R.id.layout_header_module_title_tv)
+    @ViewInject(com.stone.module.pet.R.id.layout_header_module_title_tv)
     var mTvTitle: TextView? = null
 
     @JvmField
-    @BindView(com.stone.module.pet.R.id.fragment_collect_srl)
+    @ViewInject(com.stone.module.pet.R.id.fragment_collect_srl)
     var mRefreshLayout: RefreshLayout? = null
 
     @JvmField
-    @BindView(com.stone.module.pet.R.id.fragment_collect_rv)
+    @ViewInject(com.stone.module.pet.R.id.fragment_collect_rv)
     var mRv: RecyclerView? = null
 
     private val mAdapter: CollectAdapter = CollectAdapter()

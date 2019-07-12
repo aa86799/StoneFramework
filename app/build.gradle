@@ -55,54 +55,12 @@ dependencies {
     androidTestImplementation refs.testRunner
     androidTestImplementation refs.espresso
     testImplementation refs.junit
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //If you are using Kotlin, replace annotationProcessor with kapt.
-    kapt refs.butterknifeCompiler
-
-    implementation refs.dagger
-    kapt refs.daggerCompiler
-
-//    implementation refs.arouter
-//    kapt refs.arouterApt
-
-    implementation refs.retrofit
-    implementation refs.retrofitConverterScalars
-    implementation refs.retrofitConverterGson
-    implementation refs.retrofitAdapterRxjava
-    implementation refs.retrofitUrlManage
-
-    implementation refs.gson
-    implementation refs.fastjson
-    implementation refs.okhttp
-    implementation refs.okhttpLogInterceptor
-    implementation refs.okio
-
-    implementation refs.hdoCircleImageview
-
-    debugImplementation refs.leakcanary
-
-    implementation refs.androidPickerView
-    implementation refs.apvWheelView
-    implementation refs.venshineWheelView
-
-    implementation refs.glide
-    implementation refs.glideOkhttp
-    kapt refs.glideCompiler
-
-    implementation refs.orhLogger
-
-    implementation refs.flycoTabLayout
-
-    implementation refs.bgaqrcodeZxing
-
-    implementation refs.matisse
-
-    implementation refs.androidAutoSize
-
-    implementation refs.glidTransformations
-
     implementation project(":lib_common")
+
+    if (component.isModule.toBoolean()) {
+        implementation project(":module_pet")
+    }
 
 }

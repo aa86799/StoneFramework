@@ -7,7 +7,6 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import butterknife.BindView
 import com.blankj.utilcode.util.LogUtils
 import com.stone.module.pet.R
 import com.stone.module.pet.gilde.GlideApp
@@ -15,8 +14,10 @@ import com.stone.module.pet.gilde.ImageUtil
 import com.stone.module.pet.ui.activity.main.ActivityMain
 import com.stone.module.pet.ui.base.BaseActivity
 import com.stone.module.pet.util.RxJavaUtil
+import com.stone.lib.common.util.ViewInject
 import com.tbruyelle.rxpermissions2.Permission
 import com.tbruyelle.rxpermissions2.RxPermissions
+import javax.inject.Inject
 
 /**
  * desc   : splash
@@ -27,11 +28,12 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 class SplashActivity : BaseActivity<SplashPresenter>(), SplashContact.View {
 
     @JvmField
-    @BindView(R.id.activity_splash_iv)
+    @ViewInject(R.id.activity_splash_iv)
+    @Inject
     var mImageView: ImageView? = null
 
     @JvmField
-    @BindView(R.id.activity_splash_tv)
+    @ViewInject(R.id.activity_splash_tv)
     var mTextView: TextView? = null
 
     override fun onError() {

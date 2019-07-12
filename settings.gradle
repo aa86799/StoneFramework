@@ -1,1 +1,1 @@
-include ':app', ':lib_common', ':module_pet'
+include ':app', ':lib_common', ':module_pet', ':lib_compile', ':lib_annotations'

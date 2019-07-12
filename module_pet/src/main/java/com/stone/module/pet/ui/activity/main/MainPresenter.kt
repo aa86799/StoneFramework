@@ -1,7 +1,7 @@
 package com.stone.module.pet.ui.activity.main
 
 import com.alibaba.fastjson.JSON
-import com.stone.module.pet.App
+import component.App
 import com.stone.module.pet.R
 import com.stone.module.pet.api.ApiHelper
 import com.stone.module.pet.bean.api.PageBean

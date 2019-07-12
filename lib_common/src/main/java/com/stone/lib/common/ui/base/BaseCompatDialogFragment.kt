@@ -10,6 +10,7 @@ import androidx.annotation.CallSuper
 import androidx.annotation.CheckResult
 import androidx.fragment.app.DialogFragment
 import butterknife.ButterKnife
+
 import butterknife.Unbinder
 import com.stone.lib.common.mvp.BaseView
 import com.trello.rxlifecycle3.LifecycleProvider

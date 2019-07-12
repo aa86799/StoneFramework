@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.stone.module.pet.App;
+import component.App;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;

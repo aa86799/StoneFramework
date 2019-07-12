@@ -3,7 +3,7 @@ package com.stone.module.pet.api;
 import android.content.Context;
 import android.util.Log;
 import com.blankj.utilcode.util.AppUtils;
-import com.stone.module.pet.App;
+import component.App;
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;

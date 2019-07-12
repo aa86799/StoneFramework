@@ -3,12 +3,12 @@ package com.stone.module.pet.ui.fragment.home
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import butterknife.BindView
 import com.flyco.tablayout.SegmentTabLayout
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.stone.module.pet.R
 import com.stone.module.pet.ui.fragment.bottom.BottomItemFragment
 import com.stone.module.pet.ui.fragment.home.collect.FragmentCollect
+import com.stone.lib.common.util.ViewInject
 
 /**
  * desc:    首页
@@ -24,15 +24,15 @@ class FragmentHome: BottomItemFragment<HomePresenter>(), HomeContact.View {
     }
 
     @JvmField
-    @BindView(R.id.layout_header_module_title_tv)
+    @ViewInject(R.id.layout_header_module_title_tv)
     var mTvTitle: TextView? = null
 
     @JvmField
-    @BindView(R.id.layout_header_top_left_iv)
+    @ViewInject(R.id.layout_header_top_left_iv)
     var mBack: ImageView? = null
 
     @JvmField
-    @BindView(R.id.fragment_main_tab)
+    @ViewInject(R.id.fragment_main_tab)
     var mTabLayout: SegmentTabLayout? = null
 
     private var mCurrent: Int = 0

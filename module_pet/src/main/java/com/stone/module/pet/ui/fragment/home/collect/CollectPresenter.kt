@@ -1,13 +1,6 @@
 package com.stone.module.pet.ui.fragment.home.collect
 
 
-import com.stone.module.pet.App
-import com.stone.module.pet.R
-import com.stone.module.pet.bean.api.PageBean
-import com.stone.module.pet.api.ApiHelper
-import com.stone.module.pet.bean.test.PendingOrderEntity
-import com.stone.module.pet.util.RxJavaUtil
-
 class CollectPresenter : CollectContact.Presenter() {
 
     internal override fun loadData(token: String, currentPage: Int) {
