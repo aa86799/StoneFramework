@@ -26,6 +26,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
 
     buildTypes {
@@ -88,7 +94,7 @@ dependencies {
 
     implementation refs.hdoCircleImageview
 
-    debugImplementation refs.leakcanary
+//    debugImplementation refs.leakcanary
 
     implementation refs.androidPickerView
     implementation refs.apvWheelView
@@ -112,5 +118,6 @@ dependencies {
 
     implementation project(":lib_common")
     implementation project(":lib_annotations")
+//    annotationProcessor project(":lib_compile")
     kapt project(":lib_compile")
 }

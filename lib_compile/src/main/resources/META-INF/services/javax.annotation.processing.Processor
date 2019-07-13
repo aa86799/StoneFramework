@@ -1,0 +1,3 @@
+#注册处理类
+com.stone.lib.compilse.RouteProcessor
+com.stone.lib.compilse.TestProcessor

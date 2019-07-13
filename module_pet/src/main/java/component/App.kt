@@ -1,8 +1,6 @@
 package component
 
 import android.app.Application
-import leakcanary.LeakCanary
-import leakcanary.LeakSentry
 
 class App : Application() {
 
@@ -26,8 +24,8 @@ class App : Application() {
     }
 
     private fun initLeakCanary() {
-        LeakSentry.config = LeakSentry.config.copy(watchFragmentViews = false)
-        LeakCanary.config = LeakCanary.config.copy(dumpHeap = false)
+//        LeakSentry.config = LeakSentry.config.copy(watchFragmentViews = false)
+//        LeakCanary.config = LeakCanary.config.copy(dumpHeap = false)
 
         /*
          * Watching objects with a lifecycle:

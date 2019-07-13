@@ -133,7 +133,7 @@ versions.butterknife = '10.1.0'
 versions.eventbus = '3.1.1'
 
 //内存泄露检测. url: https://github.com/square/leakcanary
-versions.leakcanary = '2.0-alpha-1'
+versions.leakcanary = '2.0-alpha-3'
 
 //时间、省市区联动等的选择器. url: https://github.com/Bigkoo/Android-PickerView
 versions.androidPickerView = '4.1.8'

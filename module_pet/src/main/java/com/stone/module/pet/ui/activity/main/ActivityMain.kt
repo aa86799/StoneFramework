@@ -1,12 +1,13 @@
 package com.stone.module.pet.ui.activity.main
 
+import com.stone.lib.annotations.router.Route
 import com.stone.module.pet.ui.fragment.bottom.BottomFragment
 import com.stone.module.pet.R
 import com.stone.module.pet.di.component.DaggerActivityComponent
 import com.stone.module.pet.ui.base.BaseActivity
-import leakcanary.LeakSentry
+import com.stone.router.`SRouter$$Group$$Pet`
 
-
+@Route(path = "/Pet/main")
 class ActivityMain : BaseActivity<MainPresenter>(), MainContract.View {
 
     override fun getLayoutId(): Int {
@@ -14,7 +15,7 @@ class ActivityMain : BaseActivity<MainPresenter>(), MainContract.View {
     }
 
     override fun init() {
-        LeakSentry.refWatcher.watch(this)
+//        LeakSentry.refWatcher.watch(this)
 
         loadRootFragment(R.id.activity_main_fl, BottomFragment())
 
