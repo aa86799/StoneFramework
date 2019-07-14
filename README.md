@@ -16,3 +16,10 @@
 # RouteProcessor
     处理 @Route 。
     生成 名如 $$Root$$ 类，保存各组信息；为每个组，生成名如 $$Group$$ 类，保存每组的路由数据(RouteMeta)。
+    
+
+# 分支：dev-mine
+    不使用自定义 Router，直接用 ARouter。
+    组件定义自己的 application-module，以便单独运行。
+    使用 app 运行时，需要指定一个 launcher 的 Activity。
+    常用三方组件的初始化，分别在具体的 application-module中写一份。组件自己的一些初始工作，写在相应的 xxGlobalConfig.init()中。
