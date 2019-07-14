@@ -5,7 +5,7 @@ import com.stone.module.pet.R
 import com.stone.module.pet.api.ApiHelper
 import com.stone.module.pet.bean.api.PageBean
 import com.stone.module.pet.bean.test.HomeBean
-import com.stone.module.pet.config.GlobalConfig
+import com.stone.module.pet.config.PetGlobalConfig
 import com.stone.module.pet.util.RxJavaUtil
 
 class MainPresenter : MainContract.Presenter() {
@@ -27,7 +27,7 @@ class MainPresenter : MainContract.Presenter() {
                 }
             }, { error ->
                 error.printStackTrace()
-                mView?.showMsg(GlobalConfig.app?.getString(R.string.mpt_system_error)!!)
+                mView?.showMsg(PetGlobalConfig.app?.getString(R.string.mpt_system_error)!!)
             })
 
     }

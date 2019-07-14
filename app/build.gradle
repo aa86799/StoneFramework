@@ -8,8 +8,6 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'com.jakewharton.butterknife'
 
-apply plugin: 'app-joint' //组件化
-
 android {
     compileSdkVersion buildVersions.compileSdkVersion
     defaultConfig {
@@ -58,11 +56,11 @@ dependencies {
     testImplementation refs.junit
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation refs.appJoint
+    implementation refs.arouter
+//    kapt refs.arouterApt
+
     implementation project(":lib_common")
     implementation project(":lib_router")
-
-
     implementation project(":module_pet")
 
 }

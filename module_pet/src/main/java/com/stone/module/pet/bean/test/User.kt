@@ -1,8 +1,9 @@
 package com.stone.module.pet.bean.test
 
+import java.io.Serializable
 import javax.inject.Inject
 
-class User {
+class User: Serializable {
     var name: String? = null
 
     @Inject

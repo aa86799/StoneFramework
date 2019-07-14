@@ -17,7 +17,6 @@ buildscript {
 
         classpath "com.jakewharton:butterknife-gradle-plugin:$versions.butterknife"
 
-        classpath "io.github.prototypez:app-joint:$versions.appJoint"
     }
 }
 

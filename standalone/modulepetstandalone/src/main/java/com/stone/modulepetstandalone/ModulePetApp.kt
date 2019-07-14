@@ -1,8 +1,8 @@
 package com.stone.modulepetstandalone
 
 import android.app.Application
-import com.stone.module.pet.config.GlobalConfig
-import io.github.prototypez.appjoint.core.ModuleSpec
+import com.alibaba.android.arouter.launcher.ARouter
+import com.stone.module.pet.config.PetGlobalConfig
 
 /**
  * desc:
@@ -11,7 +11,6 @@ import io.github.prototypez.appjoint.core.ModuleSpec
  * blog:    https://stone.blog.csdn.net
  * time:    2019-07-14 13:55
  */
-@ModuleSpec
 class ModulePetApp : Application() {
 
     companion object {
@@ -32,10 +31,7 @@ class ModulePetApp : Application() {
 
         initARouter()
 
-//        val petService = PetServiceImpl()
-        val petService = GlobalConfig.PET_SERVICE
-
-        petService.setApplication(this)
+        PetGlobalConfig.init(this)
     }
 
     private fun initLeakCanary() {
@@ -49,11 +45,11 @@ class ModulePetApp : Application() {
     }
 
     private fun initARouter() {
-//        if (BuildConfig.DEBUG) {// 这两行必须写在init之前，否则这些配置在init过程中将无效
-//            ARouter.openLog()    // 打印日志
-////            ARouter.openDebug() // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-//        }
-//        ARouter.init(this)
+        if (BuildConfig.DEBUG) {// 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog()    // 打印日志
+//            ARouter.openDebug() // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(this)
 
     }
 

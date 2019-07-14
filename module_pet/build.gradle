@@ -22,9 +22,10 @@ android {
 
         multiDexEnabled true
 
+        //ARouter
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
 
@@ -44,19 +45,13 @@ android {
         targetCompatibility = 1.8
     }
 
-//    sourceSets {
-//        main {
-//            if (component.isModule.toBoolean()) {
-//                manifest.srcFile 'src/main/AndroidManifest.xml'
-//            } else {
-//                manifest.srcFile 'src/main/component/AndroidManifest.xml'
-//                //集成开发模式下排除debug文件夹中的所有Java文件
-//                java {
-//                    exclude 'component/**'
-//                }
-//            }
-//        }
-//    }
+}
+
+//ARouter
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
 }
 
 dependencies {
@@ -75,8 +70,8 @@ dependencies {
     implementation refs.dagger
     kapt refs.daggerCompiler
 
-//    implementation refs.arouter
-//    kapt refs.arouterApt
+    implementation refs.arouter
+    kapt refs.arouterApt
 
     implementation refs.retrofit
     implementation refs.retrofitConverterScalars
@@ -113,8 +108,6 @@ dependencies {
     implementation refs.androidAutoSize
 
     implementation refs.glidTransformations
-
-    implementation refs.appJoint
 
     implementation project(":lib_common")
     implementation project(":lib_router")

@@ -3,7 +3,7 @@ package com.stone.module.pet.api;
 import android.content.Context;
 import android.util.Log;
 import com.blankj.utilcode.util.AppUtils;
-import com.stone.module.pet.config.GlobalConfig;
+import com.stone.module.pet.config.PetGlobalConfig;
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -76,7 +76,7 @@ class SRetrofit {
                          * 　及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等
                          *  这里标记为 android 设备
                          */
-                        .addHeader("User-Agent", "jw_app_android_" + AppUtils.getAppVersionCode(GlobalConfig.INSTANCE.getApp().getPackageName()))
+                        .addHeader("User-Agent", "jw_app_android_" + AppUtils.getAppVersionCode(PetGlobalConfig.INSTANCE.getApp().getPackageName()))
                         .build();
                 return chain.proceed(request);
             }

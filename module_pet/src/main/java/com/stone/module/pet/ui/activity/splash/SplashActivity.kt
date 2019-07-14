@@ -8,9 +8,12 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
+import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.LogUtils
 import com.stone.module.pet.R
 import com.stone.module.pet.R2
+import com.stone.module.pet.bean.test.User
+import com.stone.module.pet.config.ARouterConfig
 import com.stone.module.pet.gilde.GlideApp
 import com.stone.module.pet.gilde.ImageUtil
 import com.stone.module.pet.ui.activity.main.ActivityMain
@@ -40,8 +43,13 @@ class SplashActivity : BaseActivity<SplashPresenter>(), SplashContact.View {
     override fun onError() {
         //有异常，直接进首页
         mImageView!!.postDelayed({
-                        val intent = Intent(this@SplashActivity, ActivityMain::class.java)
-            startActivity(intent)
+            //            val intent = Intent(this@SplashActivity, ActivityMain::class.java)
+//            startActivity(intent)
+
+            ARouter.getInstance().build(ARouterConfig.ACTIVITY_MAIN)
+                .withInt("testKey", 1000)
+                .withSerializable("customObj", User("testUser"))
+                .navigation()
 
 
             finish()

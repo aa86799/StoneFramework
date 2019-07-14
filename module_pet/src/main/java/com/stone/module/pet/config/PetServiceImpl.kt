@@ -1,7 +1,7 @@
 package com.stone.module.pet.config
 
 import android.app.Application
-import io.github.prototypez.appjoint.core.ServiceProvider
+import com.stone.router.PetService
 
 /**
  * desc:
@@ -10,10 +10,9 @@ import io.github.prototypez.appjoint.core.ServiceProvider
  * blog:    https://stone.blog.csdn.net
  * time:    2019-07-14 14:21
  */
-@ServiceProvider
-class PetServiceImpl {
+object PetServiceImpl: PetService {
 
-    fun setApplication(app: Application) {
-        GlobalConfig.app = app
+    override fun setApplication(app: Application) {
+        PetGlobalConfig.app = app
     }
 }

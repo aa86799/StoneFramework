@@ -2,7 +2,7 @@ package com.stone.module.pet.widget
 
 import android.view.View
 import android.widget.Toast
-import com.stone.module.pet.config.GlobalConfig
+import com.stone.module.pet.config.PetGlobalConfig
 
 class ToastWidget private constructor(builder: Builder) {
 
@@ -45,7 +45,7 @@ class ToastWidget private constructor(builder: Builder) {
 
     companion object {
         //此处的 mToast 有静态单例效果
-        private var mToast: Toast? = Toast.makeText(GlobalConfig.app, "", Toast.LENGTH_SHORT)
+        private var mToast: Toast? = Toast.makeText(PetGlobalConfig.app, "", Toast.LENGTH_SHORT)
     }
 
     init {
@@ -60,7 +60,7 @@ class ToastWidget private constructor(builder: Builder) {
         }
 
         if (builder.viewResId != 0) {
-            mToast?.view = View.inflate(GlobalConfig.app, builder.viewResId, null)
+            mToast?.view = View.inflate(PetGlobalConfig.app, builder.viewResId, null)
         }
 
         if (builder.gravity != -1) {
