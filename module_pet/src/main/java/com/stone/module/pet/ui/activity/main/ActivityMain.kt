@@ -5,13 +5,12 @@ import com.stone.module.pet.ui.fragment.bottom.BottomFragment
 import com.stone.module.pet.R
 import com.stone.module.pet.di.component.DaggerActivityComponent
 import com.stone.module.pet.ui.base.BaseActivity
-import com.stone.router.`SRouter$$Group$$Pet`
 
 @Route(path = "/Pet/main")
 class ActivityMain : BaseActivity<MainPresenter>(), MainContract.View {
 
     override fun getLayoutId(): Int {
-        return R.layout.activity_main
+        return R.layout.mpt_activity_main
     }
 
     override fun init() {

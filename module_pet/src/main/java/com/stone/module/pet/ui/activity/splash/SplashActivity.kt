@@ -54,7 +54,7 @@ class SplashActivity : BaseActivity<SplashPresenter>(), SplashContact.View {
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.activity_splash
+        return R.layout.mpt_activity_splash
     }
 
     override fun init() {
@@ -159,7 +159,7 @@ class SplashActivity : BaseActivity<SplashPresenter>(), SplashContact.View {
     //    }
 
     private fun showImage() {
-        ImageUtil.loadBackground(this, R.mipmap.ic_launcher, mImageView, {}, {
+        ImageUtil.loadBackground(this, R.mipmap.mpt_ic_launcher, mImageView, {}, {
             mTextView?.visibility = View.VISIBLE
             mTextView?.isClickable = false
             mTextView?.isEnabled = false

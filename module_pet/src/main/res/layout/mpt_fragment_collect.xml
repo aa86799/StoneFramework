@@ -14,7 +14,7 @@
                 android:id="@+id/fragment_collect_rv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_collect"/>
+                tools:listitem="@layout/mpt_item_collect"/>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

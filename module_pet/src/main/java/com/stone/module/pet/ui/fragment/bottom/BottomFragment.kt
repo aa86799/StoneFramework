@@ -44,9 +44,9 @@ class BottomFragment : BaseFragment<BottomPresenter>(), OnClickListener, BottomC
      */
     fun setItems(builder: BottomItemBuilder): MutableMap<BottomTabBean, BottomItemFragment<*>> {
         val items = mutableMapOf<BottomTabBean, BottomItemFragment<*>>()
-        items[BottomTabBean(R.mipmap.ic_launcher, "首页")] = FragmentHome()
-        items[BottomTabBean(R.mipmap.ic_launcher, "动态")] = FragmentHome()
-        items[BottomTabBean(R.mipmap.ic_launcher, "我的")] = FragmentMine()
+        items[BottomTabBean(R.mipmap.mpt_ic_launcher, "首页")] = FragmentHome()
+        items[BottomTabBean(R.mipmap.mpt_ic_launcher, "动态")] = FragmentHome()
+        items[BottomTabBean(R.mipmap.mpt_ic_launcher, "我的")] = FragmentMine()
         return builder.addItems(items).ITEMS
     }
 
@@ -75,7 +75,7 @@ class BottomFragment : BaseFragment<BottomPresenter>(), OnClickListener, BottomC
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_bottom
+        return R.layout.mpt_fragment_bottom
     }
 
     override fun init() {
@@ -94,7 +94,7 @@ class BottomFragment : BaseFragment<BottomPresenter>(), OnClickListener, BottomC
 
         val size = items!!.size
         for (i in 0 until size) {
-            LayoutInflater.from(context).inflate(R.layout.item_bottom, mBottomBar)
+            LayoutInflater.from(context).inflate(R.layout.mpt_item_bottom, mBottomBar)
             val layout = mBottomBar!!.getChildAt(i) as LinearLayoutCompat
             layout.tag = i //保存索引为 tag
             layout.setOnClickListener(this)

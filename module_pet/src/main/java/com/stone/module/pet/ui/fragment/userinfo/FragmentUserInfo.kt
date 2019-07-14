@@ -50,7 +50,7 @@ class FragmentUserInfo : BaseFragment<UserInfoPresenter>(), UserInfoContact.View
 
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_user_info
+        return R.layout.mpt_fragment_user_info
     }
 
     override fun onError() {

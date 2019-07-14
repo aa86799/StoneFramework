@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <include layout="@layout/layout_header"/>
+    <include layout="@layout/mpt_layout_header"/>
 
     <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
             <androidx.appcompat.widget.LinearLayoutCompat
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/mpt_colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:orientation="horizontal">
@@ -50,7 +50,7 @@
                             android:gravity="center_vertical"
                             android:textColor="@color/white"
                             android:layout_weight="1"
-                            android:textSize="@dimen/sp_20"/>
+                            android:textSize="@dimen/mpt_sp_20"/>
                     <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/fragment_user_info_phone_tv"
                             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                             android:textColor="@color/white"
                             android:gravity="center_vertical"
                             tools:text="15912345678"
-                            android:textSize="@dimen/sp_20"/>
+                            android:textSize="@dimen/mpt_sp_20"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <RelativeLayout
@@ -74,7 +74,7 @@
                             android:textColor="@color/white"
                             android:gravity="center_vertical|end"
                             tools:text="车牌号x2c3d5"
-                            android:textSize="@dimen/sp_20"/>
+                            android:textSize="@dimen/mpt_sp_20"/>
                 </RelativeLayout>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -93,7 +93,7 @@
                         android:layout_height="match_parent"
                         android:text="查看证件信息"
                         android:paddingStart="18dp"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/mpt_colorPrimaryDark"
                         android:textSize="16sp"
                         android:gravity="center_vertical|end"/>
             </LinearLayout>
@@ -101,9 +101,9 @@
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/fragment_user_info_rv"
                     android:layout_width="match_parent"
-                    android:background="@drawable/bg_circle_corner_solid_white_10dp"
+                    android:background="@drawable/mpt_bg_circle_corner_solid_white_10dp"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/item_user_info"/>
+                    tools:listitem="@layout/mpt_item_user_info"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>

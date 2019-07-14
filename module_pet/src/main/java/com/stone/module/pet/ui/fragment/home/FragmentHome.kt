@@ -38,7 +38,7 @@ class FragmentHome: BottomItemFragment<HomePresenter>(), HomeContact.View {
     private var mCurrent: Int = 0
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_home
+        return R.layout.mpt_fragment_home
     }
 
     override fun init() {

@@ -12,7 +12,7 @@ import com.stone.module.pet.bean.test.PendingOrderEntity
  * blog:    https://stone.blog.csdn.net
  * time:    2019-06-23 19:02
  */
-class CollectAdapter : BaseQuickAdapter<PendingOrderEntity, BaseViewHolder>(R.layout.item_collect) {
+class CollectAdapter : BaseQuickAdapter<PendingOrderEntity, BaseViewHolder>(R.layout.mpt_item_collect) {
 
     override fun convert(helper: BaseViewHolder?, item: PendingOrderEntity?) {
 //        helper?.setText(R.id.item_collect_time_tv, "")

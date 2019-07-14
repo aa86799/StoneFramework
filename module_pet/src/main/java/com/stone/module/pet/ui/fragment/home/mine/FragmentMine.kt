@@ -60,7 +60,7 @@ class FragmentMine : BottomItemFragment<MinePresenter>(), MineContact.View {
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_mine
+        return R.layout.mpt_fragment_mine
     }
 
     override fun init() {
@@ -74,12 +74,12 @@ class FragmentMine : BottomItemFragment<MinePresenter>(), MineContact.View {
         mRv?.layoutManager = LinearLayoutManager(context)
         mRv?.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         val data = mutableListOf<SettingVM>()
-        data.add(SettingVM(R.drawable.ic_launcher_background, "xx信息", ""))
-        data.add(SettingVM(R.drawable.ic_launcher_background, "修改手机号", "188***7887"))
-        data.add(SettingVM(R.drawable.ic_launcher_background, "aaa", ""))
-        data.add(SettingVM(R.drawable.ic_launcher_background, "金额", "¥6688993.78"))
-        data.add(SettingVM(R.drawable.ic_launcher_background, "bbb", ""))
-        data.add(SettingVM(R.drawable.ic_launcher_background, "ccc", ""))
+        data.add(SettingVM(R.drawable.mpt_ic_launcher_background, "xx信息", ""))
+        data.add(SettingVM(R.drawable.mpt_ic_launcher_background, "修改手机号", "188***7887"))
+        data.add(SettingVM(R.drawable.mpt_ic_launcher_background, "aaa", ""))
+        data.add(SettingVM(R.drawable.mpt_ic_launcher_background, "金额", "¥6688993.78"))
+        data.add(SettingVM(R.drawable.mpt_ic_launcher_background, "bbb", ""))
+        data.add(SettingVM(R.drawable.mpt_ic_launcher_background, "ccc", ""))
 
         mAdapter = SettingAdapter(data)
         mRv?.adapter = mAdapter

@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.stone.module.pet.R
 
-class UserInfoAdapter(data: List<UserInfoVM>?) : BaseQuickAdapter<UserInfoVM, BaseViewHolder>(R.layout.item_user_info, data) {
+class UserInfoAdapter(data: List<UserInfoVM>?) : BaseQuickAdapter<UserInfoVM, BaseViewHolder>(R.layout.mpt_item_user_info, data) {
 
     override fun convert(helper: BaseViewHolder, item: UserInfoVM) {
         helper.setText(R.id.item_user_info_name_tv, item.name)
@@ -19,7 +19,7 @@ class UserInfoAdapter(data: List<UserInfoVM>?) : BaseQuickAdapter<UserInfoVM, Ba
 
         if (helper.adapterPosition == mData.size - 1) {
             val tv: TextView = helper.getView(R.id.item_user_info_right_tv)
-            tv.setTextColor(mContext.resources.getColor(R.color.colorAccent))
+            tv.setTextColor(mContext.resources.getColor(R.color.mpt_colorAccent))
         }
     }
 }

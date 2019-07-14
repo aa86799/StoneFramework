@@ -45,7 +45,7 @@ class FragmentCollect(val mType: String) : BaseFragment<CollectPresenter>(), Col
     }
 
     override fun getLayoutId(): Int {
-        return com.stone.module.pet.R.layout.fragment_collect
+        return com.stone.module.pet.R.layout.mpt_fragment_collect
     }
 
     override fun init() {
@@ -132,7 +132,7 @@ class FragmentCollect(val mType: String) : BaseFragment<CollectPresenter>(), Col
 
 //    private fun inOrder() {//接单
 //        // 用于PopupWindow的View
-//        val contentView = LayoutInflater.from(context).inflate(R.layout.layout_popup_in_order, null, false)
+//        val contentView = LayoutInflater.from(context).inflate(R.layout.mpt_layout_popup_in_order, null, false)
 //        // 创建PopupWindow对象，其中：
 //        // 第一个参数是用于PopupWindow中的View，第二个参数是PopupWindow的宽度，
 //        // 第三个参数是PopupWindow的高度，第四个参数指定PopupWindow能否获得焦点

@@ -39,6 +39,7 @@ abstract class BaseFragment<P : BasePresenter<*>> : BaseCompatFragment(), ISuppo
 
     }
 
+    @Suppress("UNCHECKED_CAST")
     fun <T : BaseFragment<*>> getParentDelegate(): T {
         return parentFragment as T
     }

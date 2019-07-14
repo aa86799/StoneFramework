@@ -5,7 +5,7 @@
         android:id="@+id/layout_header_toolbar"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/mpt_colorPrimaryDark"
         android:layout_height="62dp">
 
     <RelativeLayout
@@ -18,7 +18,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_centerVertical="true"
-                android:background="@drawable/ic_chevron_left_white_24dp"
+                android:background="@drawable/mpt_ic_chevron_left_white_24dp"
                 android:gravity="left|center"/>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -33,7 +33,7 @@
                 tools:text="title"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_20"/>
+                android:textSize="@dimen/mpt_sp_20"/>
 
         <!--<androidx.appcompat.widget.AppCompatTextView-->
         <!--android:id="@+id/layout_header_top_right_tv"-->
@@ -41,7 +41,7 @@
         <!--android:layout_height="30dp"-->
         <!--android:layout_alignParentRight="true"-->
         <!--android:layout_centerVertical="true"-->
-        <!--android:background="@drawable/bg_circle_corner_solid_white_20dp"-->
+        <!--android:background="@drawable/mpt_bg_circle_corner_solid_white_20dp"-->
         <!--android:gravity="center"-->
         <!--android:paddingLeft="8dp"-->
         <!--android:paddingRight="15dp"-->
@@ -56,7 +56,7 @@
                 <!--android:layout_alignParentEnd="true"-->
                 <!--android:layout_centerVertical="true"-->
                 <!--android:layout_marginEnd="10dp"-->
-                <!--android:background="@drawable/bg_circle_corner_solid_white_20dp"-->
+                <!--android:background="@drawable/mpt_bg_circle_corner_solid_white_20dp"-->
                 <!--android:layout_height="30dp">-->
 
             <!--<androidx.appcompat.widget.AppCompatImageView-->
@@ -65,13 +65,13 @@
                     <!--android:layout_height="20dp"-->
                     <!--android:layout_gravity="center_vertical"-->
                     <!--android:layout_marginStart="16dp"-->
-                    <!--android:src="@mipmap/ic_launcher"-->
+                    <!--android:src="@mipmap/mpt_ic_launcher"-->
                     <!--tools:background="@tools:sample/backgrounds/scenic"/>-->
             <!--<androidx.appcompat.widget.AppCompatImageView-->
                     <!--android:id="@+id/layout_header_top_right_iv2"-->
                     <!--android:layout_width="20dp"-->
                     <!--android:layout_height="20dp"-->
-                    <!--android:src="@mipmap/ic_launcher"-->
+                    <!--android:src="@mipmap/mpt_ic_launcher"-->
                     <!--android:layout_gravity="center_vertical"-->
                     <!--android:layout_marginStart="18dp"-->
                     <!--tools:background="@tools:sample/backgrounds/scenic"/>-->

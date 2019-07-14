@@ -19,7 +19,7 @@ class OrderFragmentDialog : BaseDialogFragment<CollectPresenter>(), CollectConta
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.layout_popup_in_order
+        return R.layout.mpt_layout_popup_in_order
     }
 
     override fun init() {

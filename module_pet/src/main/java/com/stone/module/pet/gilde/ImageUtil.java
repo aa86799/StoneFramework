@@ -21,7 +21,7 @@ import com.stone.module.pet.R;
  */
 
 public class ImageUtil {
-    private static int defaultResId = R.mipmap.ic_launcher;
+    private static int defaultResId = R.mipmap.mpt_ic_launcher;
 
     public static void load(Object obj, Uri uri, ImageView imageView) {
         load(obj, uri.toString(), imageView);

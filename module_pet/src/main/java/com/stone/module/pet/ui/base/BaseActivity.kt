@@ -65,7 +65,7 @@ abstract class BaseActivity<P : BasePresenter<*>> : BaseCompatActivity(), BaseVi
 
     private fun initToastWidget() {
         if (null == toastWidget) {
-            val view = View.inflate(this, R.layout.layout_toast, null)
+            val view = View.inflate(this, R.layout.mpt_layout_toast, null)
             toastWidget = ToastWidget.Builder()
                 .view(view)
                 .gravity(Gravity.CENTER)
@@ -84,7 +84,7 @@ abstract class BaseActivity<P : BasePresenter<*>> : BaseCompatActivity(), BaseVi
         initToastWidget()
 
         val tv = toastWidget?.getView()?.findViewById<TextView>(R.id.layout_toast_tv)
-        tv?.text = resources.getString(R.string.toast_placeholder, msg)
+        tv?.text = resources.getString(R.string.mpt_toast_placeholder, msg)
         toastWidget?.showShort()
     }
 
@@ -95,7 +95,7 @@ abstract class BaseActivity<P : BasePresenter<*>> : BaseCompatActivity(), BaseVi
 
         val tv = toastWidget?.getView()?.findViewById<TextView>(R.id.layout_toast_tv)
         val msg = resources.getString(msgResId)
-        tv?.text = resources.getString(R.string.toast_placeholder, msg)
+        tv?.text = resources.getString(R.string.mpt_toast_placeholder, msg)
         toastWidget?.showShort()
     }
 

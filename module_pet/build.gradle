@@ -32,6 +32,9 @@ android {
                 arguments = [ moduleName : project.getName() ]
             }
         }
+
+        //resourcePrefix 只能限定Xml资源，并不能限定图片资源，图片资源扔需要自身注意设置前缀名。
+        resourcePrefix "mpt_"
     }
 
     buildTypes {
@@ -120,4 +123,6 @@ dependencies {
     implementation project(":lib_annotations")
 //    annotationProcessor project(":lib_compile")
     kapt project(":lib_compile")
+
+    compileOnly files('/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar')
 }

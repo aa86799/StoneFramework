@@ -7,12 +7,12 @@
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/layout_toast_tv"
-            android:background="@drawable/bg_circle_corner_solid_gray"
+            android:background="@drawable/mpt_bg_circle_corner_solid_gray"
             android:layout_width="wrap_content"
             android:minWidth="100dp"
             android:textSize="14sp"
             tools:text="  发生了一点问题，\n工程师正在紧急修复中  "
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/mpt_colorAccent"
             android:gravity="center"
             android:layout_height="60dp"/>
 </RelativeLayout>

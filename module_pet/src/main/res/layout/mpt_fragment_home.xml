@@ -9,7 +9,7 @@
 
     <include
             android:id="@+id/fragment_main_header"
-            layout="@layout/layout_header"/>
+            layout="@layout/mpt_layout_header"/>
 
     <LinearLayout
             android:background="@color/gray"
@@ -26,11 +26,11 @@
                 app:tl_indicator_corner_radius="0dp"
                 app:tl_indicator_color="@color/white"
                 app:tl_underline_height="4dp"
-                app:tl_textSelectColor="@color/colorPrimaryDark"
+                app:tl_textSelectColor="@color/mpt_colorPrimaryDark"
                 app:tl_textUnselectColor="@color/black"
-                app:tl_underline_color="@color/colorPrimaryDark"
-                app:tl_textsize="@dimen/sp_16"
-                app:tl_divider_color="@color/colorPrimaryDark"
+                app:tl_underline_color="@color/mpt_colorPrimaryDark"
+                app:tl_textsize="@dimen/mpt_sp_16"
+                app:tl_divider_color="@color/mpt_colorPrimaryDark"
                 android:layout_height="46dp"/>
 
 

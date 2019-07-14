@@ -27,7 +27,7 @@ class MainPresenter : MainContract.Presenter() {
                 }
             }, { error ->
                 error.printStackTrace()
-                mView?.showMsg(App.getInstance()?.getString(R.string.system_error)!!)
+                mView?.showMsg(App.getInstance()?.getString(R.string.mpt_system_error)!!)
             })
 
     }

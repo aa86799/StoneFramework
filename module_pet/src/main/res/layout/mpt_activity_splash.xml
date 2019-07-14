@@ -20,6 +20,6 @@
         android:gravity="center"
         tools:text="跳过"
         android:textColor="@color/black"
-        android:textSize="@dimen/sp_16"
+        android:textSize="@dimen/mpt_sp_16"
         android:visibility="invisible" />
 </RelativeLayout>
