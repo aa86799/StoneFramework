@@ -1,13 +1,5 @@
 /* 会使用 kotlin androidx 相关库 */
 
-/* 组件化相关配置 */
-ext.component = [:] //map
-component.isModule = false //是否是 集成模式，即模块化. false 表示全部模块都变成组件式； true 表示是 全部模块化集成
-component.aIsModule = true //a模块是否 集成模式
-component.bIsModule = true //b模块是否 集成模式
-component.cIsModule = true //c模块是否 集成模式
-//...
-
 /* -------------------------------- 构建设置 -------------------------------------- */
 def buildVersions = [:] //map
 ext.buildVersions = buildVersions //使用 ext 扩展属性
@@ -211,6 +203,9 @@ versions.immersionbar = '3.0.0-beta05'
 //需要下载工程，自行研究下
 versions.shadow = ''
 
+//组件化方案. url: https://github.com/PrototypeZ/AppJoint/
+versions.appJoint = '1.6.1'
+
 //支持h5标准的 html 文件解析. url: https://github.com/jhy/jsoup
 versions.jsoup = '1.12.1'
 
@@ -356,6 +351,8 @@ refs.flowLayout = "com.hyman:flowlayout-lib:$versions.flowLayout"
 
 refs.immersionbar = "com.gyf.immersionbar:immersionbar:$versions.immersionbar"
 refs.immersionbarComponents = "com.gyf.immersionbar:immersionbar-components:$versions.immersionbar"
+
+refs.appJoint= "io.github.prototypez:app-joint-core:$versions.appJoint"
 
 refs.jsoup= "org.jsoup:jsoup:$versions.jsoup"
 

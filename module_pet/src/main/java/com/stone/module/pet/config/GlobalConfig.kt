@@ -1,10 +1,13 @@
 package com.stone.module.pet.config
 
-import component.App
+import android.app.Application
+import com.stone.router.PetService
+import io.github.prototypez.appjoint.AppJoint
+
 
 object GlobalConfig {
 
-    fun getApp(): App? {
-        return App.getInstance()
-    }
+    var app: Application? = null
+
+    val PET_SERVICE:PetService = AppJoint.service(PetService::class.java)
 }

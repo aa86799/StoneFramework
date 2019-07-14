@@ -4,15 +4,16 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import butterknife.BindView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
+import com.stone.module.pet.R2
 import com.stone.module.pet.bean.api.PageBean
 import com.stone.module.pet.bean.test.PendingOrderEntity
 import com.stone.module.pet.ui.base.BaseFragment
-import com.stone.lib.common.util.ViewInject
 
 
 /**
@@ -25,15 +26,15 @@ import com.stone.lib.common.util.ViewInject
 class FragmentCollect(val mType: String) : BaseFragment<CollectPresenter>(), CollectContact.View {
 
     @JvmField
-    @ViewInject(com.stone.module.pet.R.id.layout_header_module_title_tv)
+    @BindView(R2.id.layout_header_module_title_tv)
     var mTvTitle: TextView? = null
 
     @JvmField
-    @ViewInject(com.stone.module.pet.R.id.fragment_collect_srl)
+    @BindView(R2.id.fragment_collect_srl)
     var mRefreshLayout: RefreshLayout? = null
 
     @JvmField
-    @ViewInject(com.stone.module.pet.R.id.fragment_collect_rv)
+    @BindView(R2.id.fragment_collect_rv)
     var mRv: RecyclerView? = null
 
     private val mAdapter: CollectAdapter = CollectAdapter()
@@ -82,7 +83,7 @@ class FragmentCollect(val mType: String) : BaseFragment<CollectPresenter>(), Col
 
         }
 
-        mRefreshLayout?.setOnLoadMoreListener{refreshLayout->
+        mRefreshLayout?.setOnLoadMoreListener { refreshLayout ->
             //可以的 ++表达式可以
             mPresenter?.loadData(mType, ++mCurrentPage)
         }

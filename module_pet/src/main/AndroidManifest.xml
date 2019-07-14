@@ -15,19 +15,19 @@
     <!-- android:usesCleartextTraffic="true" andorid9.0默认禁用webview中的http请求, 加上这句才能请求-->
     <application>
 
-        <activity android:name="com.stone.module.pet.ui.activity.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme" />
+        <!--<activity android:name="com.stone.module.pet.ui.activity.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme" />-->
 
-        <activity android:name="com.stone.module.pet.ui.activity.main.ActivityMain" android:screenOrientation="portrait"/>
+        <!--<activity android:name="com.stone.module.pet.ui.activity.main.ActivityMain" android:screenOrientation="portrait"/>-->
 
-        <provider
-                android:name="androidx.core.content.FileProvider"
-                android:authorities="com.stone.module.pet.fileProvider"
-                android:exported="false"
-                android:grantUriPermissions="true">
-            <meta-data
-                    android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/mpt_provider_paths"/>
-        </provider>
+        <!--<provider-->
+                <!--android:name="androidx.core.content.FileProvider"-->
+                <!--android:authorities="com.stone.module.pet.fileProvider"-->
+                <!--android:exported="false"-->
+                <!--android:grantUriPermissions="true">-->
+            <!--<meta-data-->
+                    <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+                    <!--android:resource="@xml/mpt_provider_paths"/>-->
+        <!--</provider>-->
 
         <!-- AndroidAutoSize -->
         <!-- 设计图 750x1500  xhdpi 375dp 750dp -->

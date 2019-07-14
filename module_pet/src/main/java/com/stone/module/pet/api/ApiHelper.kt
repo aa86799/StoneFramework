@@ -1,7 +1,7 @@
 package com.stone.module.pet.api
 
 import com.blankj.utilcode.util.AppUtils
-import component.App
+import com.stone.module.pet.config.GlobalConfig
 import okhttp3.Interceptor
 import retrofit2.Retrofit
 
@@ -26,12 +26,12 @@ object ApiHelper {
                          */
                     .addHeader(
                         "User-Agent",
-                        "jw_app_android_" + AppUtils.getAppVersionCode(App.getInstance()!!.packageName)
+                        "jw_app_android_" + AppUtils.getAppVersionCode(GlobalConfig.app!!.packageName)
                     )
                     .build()
                 chain.proceed(request)
             })
-            retrofit = SRetrofit.get(App.getInstance(), URL_BASE, interceptors)
+            retrofit = SRetrofit.get(GlobalConfig.app, URL_BASE, interceptors)
         }
         return retrofit?.create(ApiService::class.java)!!
     }

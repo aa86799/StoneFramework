@@ -41,6 +41,6 @@ class OrderFragmentDialog : BaseDialogFragment<CollectPresenter>(), CollectConta
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return  Dialog(context!!, R.style.MyAppCompatDialogTheme)
+        return  Dialog(context!!, R.style.mpt_MyAppCompatDialogTheme)
     }
 }

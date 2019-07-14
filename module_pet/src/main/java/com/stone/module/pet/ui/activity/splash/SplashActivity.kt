@@ -7,14 +7,13 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import butterknife.BindView
 import com.blankj.utilcode.util.LogUtils
-import com.stone.lib.common.router.SRouter
-import com.stone.lib.common.util.ViewInject
 import com.stone.module.pet.R
+import com.stone.module.pet.R2
 import com.stone.module.pet.gilde.GlideApp
 import com.stone.module.pet.gilde.ImageUtil
 import com.stone.module.pet.ui.activity.main.ActivityMain
-import com.stone.module.pet.ui.activity.main.MainServiceImpl
 import com.stone.module.pet.ui.base.BaseActivity
 import com.stone.module.pet.util.RxJavaUtil
 import com.tbruyelle.rxpermissions2.Permission
@@ -30,26 +29,20 @@ import javax.inject.Inject
 class SplashActivity : BaseActivity<SplashPresenter>(), SplashContact.View {
 
     @JvmField
-    @ViewInject(R.id.activity_splash_iv)
+    @BindView(R2.id.activity_splash_iv)
     @Inject
     var mImageView: ImageView? = null
 
     @JvmField
-    @ViewInject(R.id.activity_splash_tv)
+    @BindView(R2.id.activity_splash_tv)
     var mTextView: TextView? = null
 
     override fun onError() {
         //有异常，直接进首页
         mImageView!!.postDelayed({
-            //            val intent = Intent(this@SplashActivity, ActivityMain::class.java)
-//            startActivity(intent)
+                        val intent = Intent(this@SplashActivity, ActivityMain::class.java)
+            startActivity(intent)
 
-            //router 跳转界面
-            SRouter.build("/Pet/main").navigation()
-
-            //router 获取 IService 实例
-            val serviceImpl: MainServiceImpl = SRouter.build("/Pet/mainServiceImpl").navigation() as MainServiceImpl
-            serviceImpl.load("中华人民共和国")
 
             finish()
         }, 1000)

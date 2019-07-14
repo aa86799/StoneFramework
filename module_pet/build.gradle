@@ -1,9 +1,4 @@
-if (component.isModule.toBoolean()) {
-    apply plugin: 'com.android.library'
-} else {
-    apply plugin: 'com.android.application'
-}
-
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
@@ -11,14 +6,14 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-//apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion buildVersions.compileSdkVersion
     defaultConfig {
-        if (!component.isModule.toBoolean()) {
-            applicationId "com.stone.module.pet"
-        }
+//        if (!component.isModule.toBoolean()) {
+//            applicationId "com.stone.module.pet"
+//        }
         minSdkVersion buildVersions.minSdkVersion
         targetSdkVersion buildVersions.targetSdkVersion
         versionCode buildVersions.versionCode
@@ -49,19 +44,19 @@ android {
         targetCompatibility = 1.8
     }
 
-    sourceSets {
-        main {
-            if (component.isModule.toBoolean()) {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/component/AndroidManifest.xml'
-                //集成开发模式下排除debug文件夹中的所有Java文件
-                java {
-                    exclude 'component/**'
-                }
-            }
-        }
-    }
+//    sourceSets {
+//        main {
+//            if (component.isModule.toBoolean()) {
+//                manifest.srcFile 'src/main/AndroidManifest.xml'
+//            } else {
+//                manifest.srcFile 'src/main/component/AndroidManifest.xml'
+//                //集成开发模式下排除debug文件夹中的所有Java文件
+//                java {
+//                    exclude 'component/**'
+//                }
+//            }
+//        }
+//    }
 }
 
 dependencies {
@@ -75,7 +70,7 @@ dependencies {
 //    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     //If you are using Kotlin, replace annotationProcessor with kapt.
-//    kapt refs.butterknifeCompiler
+    kapt refs.butterknifeCompiler
 
     implementation refs.dagger
     kapt refs.daggerCompiler
@@ -119,10 +114,12 @@ dependencies {
 
     implementation refs.glidTransformations
 
+    implementation refs.appJoint
+
     implementation project(":lib_common")
+    implementation project(":lib_router")
     implementation project(":lib_annotations")
 //    annotationProcessor project(":lib_compile")
     kapt project(":lib_compile")
 
-    compileOnly files('/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar')
 }

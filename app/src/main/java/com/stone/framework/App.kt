@@ -1,7 +1,7 @@
 package com.stone.framework
 
 import android.app.Application
-import com.stone.lib.common.router.SRouter
+import io.github.prototypez.appjoint.core.AppSpec
 
 /**
  * desc:
@@ -10,11 +10,11 @@ import com.stone.lib.common.router.SRouter
  * blog:    https://stone.blog.csdn.net
  * time:    2019-07-14 08:58
  */
+@AppSpec
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        SRouter.init(this)
     }
 }

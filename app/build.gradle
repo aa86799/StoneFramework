@@ -8,6 +8,7 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'com.jakewharton.butterknife'
 
+apply plugin: 'app-joint' //组件化
 
 android {
     compileSdkVersion buildVersions.compileSdkVersion
@@ -57,10 +58,11 @@ dependencies {
     testImplementation refs.junit
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    implementation refs.appJoint
     implementation project(":lib_common")
+    implementation project(":lib_router")
 
-    if (component.isModule.toBoolean()) {
-        implementation project(":module_pet")
-    }
+
+    implementation project(":module_pet")
 
 }

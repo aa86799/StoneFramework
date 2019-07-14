@@ -11,11 +11,12 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
+import butterknife.BindView
 import com.stone.module.pet.R
 import com.stone.module.pet.ui.base.BaseFragment
 import com.stone.module.pet.ui.fragment.home.FragmentHome
 import com.stone.module.pet.ui.fragment.home.mine.FragmentMine
-import com.stone.lib.common.util.ViewInject
+import com.stone.module.pet.R2
 
 /**
  * desc     : 底部菜单页，将菜单页集合等方法抽象出来，让子类去实现
@@ -32,11 +33,11 @@ class BottomFragment : BaseFragment<BottomPresenter>(), OnClickListener, BottomC
     private var mTextColor: Int = 0
 
     @JvmField
-    @ViewInject(R.id.fragment_bottom_bar_ll)
+    @BindView(R2.id.fragment_bottom_bar_ll)
     var mBottomBar: LinearLayoutCompat? = null
 
     @JvmField
-    @ViewInject(R.id.fragment_bottom_content_fl)
+    @BindView(R2.id.fragment_bottom_content_fl)
     var mFrameLayout: FrameLayout? = null
 
     /**

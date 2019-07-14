@@ -2,18 +2,18 @@
 
     <!-- Base application theme. -->
     <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="mpt_AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/mpt_colorPrimary</item>
         <item name="colorPrimaryDark">@color/mpt_colorPrimaryDark</item>
         <item name="colorAccent">@color/mpt_colorAccent</item>
     </style>
 
-    <style name="SplashTheme" parent="AppTheme">
+    <style name="mpt_SplashTheme" parent="mpt_AppTheme">
         <item name="android:windowBackground">@mipmap/mpt_ic_launcher</item>
     </style>
 
-    <style name="MyAppCompatDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+    <style name="mpt_MyAppCompatDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowSoftInputMode">stateAlwaysHidden</item>

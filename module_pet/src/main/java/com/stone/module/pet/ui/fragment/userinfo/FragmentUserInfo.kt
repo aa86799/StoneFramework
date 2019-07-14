@@ -5,45 +5,46 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import butterknife.BindView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.stone.module.pet.R
+import com.stone.module.pet.R2
 import com.stone.module.pet.gilde.ImageUtil
 import com.stone.module.pet.ui.base.BaseFragment
-import com.stone.lib.common.util.ViewInject
 import de.hdodenhof.circleimageview.CircleImageView
 
 class FragmentUserInfo : BaseFragment<UserInfoPresenter>(), UserInfoContact.View {
 
     @JvmField
-    @ViewInject(R.id.layout_header_top_left_iv)
+    @BindView(R2.id.layout_header_top_left_iv)
     var mIvBack: ImageView? = null
 
     @JvmField
-    @ViewInject(R.id.layout_header_module_title_tv)
+    @BindView(R2.id.layout_header_module_title_tv)
     var mTvTitle: TextView? = null
 
     @JvmField
-    @ViewInject(R.id.fragment_user_info_user_iv)
+    @BindView(R2.id.fragment_user_info_user_iv)
     var mIvUser: CircleImageView? = null
 
     @JvmField
-    @ViewInject(R.id.fragment_user_info_name_tv)
+    @BindView(R2.id.fragment_user_info_name_tv)
     var mTvName: TextView? = null
 
     @JvmField
-    @ViewInject(R.id.fragment_user_info_phone_tv)
+    @BindView(R2.id.fragment_user_info_phone_tv)
     var mTvPhone: TextView? = null
 
     @JvmField
-    @ViewInject(R.id.fragment_user_info_car_tv)
+    @BindView(R2.id.fragment_user_info_car_tv)
     var mTvCar: TextView? = null
 
     @JvmField
-    @ViewInject(R.id.item_setting_see_tv)
+    @BindView(R2.id.item_setting_see_tv)
     var mTvSee: TextView? = null
 
     @JvmField
-    @ViewInject(R.id.fragment_user_info_rv)
+    @BindView(R2.id.fragment_user_info_rv)
     var mRv: RecyclerView? = null
 
     private var mAdapter: UserInfoAdapter? = null

@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import com.blankj.utilcode.util.LogUtils;
-import component.App;
+import com.stone.module.pet.config.GlobalConfig;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
@@ -29,7 +29,7 @@ class CookieManger implements CookieJar {
     }
     public CookieManger() {
         if (cookieStore == null) {
-            cookieStore = new PersistentCookieStore(App.Companion.getInstance());
+            cookieStore = new PersistentCookieStore(GlobalConfig.INSTANCE.getApp().getApplicationContext());
         }
     }
     public void removeAll(){
