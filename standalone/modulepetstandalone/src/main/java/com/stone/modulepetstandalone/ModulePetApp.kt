@@ -34,7 +34,6 @@ class ModulePetApp : Application() {
 
 //        val petService = PetServiceImpl()
         val petService = GlobalConfig.PET_SERVICE
-
         petService.setApplication(this)
     }
 
