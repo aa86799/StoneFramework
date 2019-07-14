@@ -8,13 +8,15 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.blankj.utilcode.util.LogUtils
+import com.stone.lib.common.router.SRouter
+import com.stone.lib.common.util.ViewInject
 import com.stone.module.pet.R
 import com.stone.module.pet.gilde.GlideApp
 import com.stone.module.pet.gilde.ImageUtil
 import com.stone.module.pet.ui.activity.main.ActivityMain
+import com.stone.module.pet.ui.activity.main.MainServiceImpl
 import com.stone.module.pet.ui.base.BaseActivity
 import com.stone.module.pet.util.RxJavaUtil
-import com.stone.lib.common.util.ViewInject
 import com.tbruyelle.rxpermissions2.Permission
 import com.tbruyelle.rxpermissions2.RxPermissions
 import javax.inject.Inject
@@ -39,8 +41,16 @@ class SplashActivity : BaseActivity<SplashPresenter>(), SplashContact.View {
     override fun onError() {
         //有异常，直接进首页
         mImageView!!.postDelayed({
-            val intent = Intent(this@SplashActivity, ActivityMain::class.java)
-            startActivity(intent)
+            //            val intent = Intent(this@SplashActivity, ActivityMain::class.java)
+//            startActivity(intent)
+
+            //router 跳转界面
+            SRouter.build("/Pet/main").navigation()
+
+            //router 获取 IService 实例
+            val serviceImpl: MainServiceImpl = SRouter.build("/Pet/mainServiceImpl").navigation() as MainServiceImpl
+            serviceImpl.load("中华人民共和国")
+
             finish()
         }, 1000)
     }

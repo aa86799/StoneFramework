@@ -43,7 +43,8 @@ public class RouteMeta {
     }
 
 
-    private RouteMeta() {
+    public RouteMeta() {
+
     }
 
     /**
@@ -58,6 +59,7 @@ public class RouteMeta {
 
 
     private RouteMeta(Type type, Element element, Class<?> destination, String path, String group) {
+        this();
         this.type = type;
         this.destination = destination;
         this.element = element;

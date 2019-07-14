@@ -2,68 +2,44 @@ package com.stone.lib.common.router
 
 import android.content.Context
 import android.os.Bundle
-import androidx.annotation.Nullable
-import com.stone.lib.annotations.router.Route
+import android.os.Parcelable
+import androidx.core.app.ActivityOptionsCompat
 import com.stone.lib.annotations.router.entity.RouteMeta
 import com.stone.lib.common.router.template.IService
-import javax.lang.model.element.Element
-import androidx.core.app.ActivityOptionsCompat
-import android.os.Parcelable
 
-
-
-
-
-
-
-
-
+import java.util.ArrayList
 
 /**
- * desc:
- * author:  stone
- * email:   aa86799@163.com
- * blog:    https://stone.blog.csdn.net
- * time:    2019-07-14 05:31
+ * 跳卡
+ *
  */
-class Postcard constructor(type: Type?, route: Route?, element: Element?) :
-    RouteMeta(type, route, element) {
-
-    private var bundle: Bundle? = null
-    private var flags = -1
-
+class Postcard(): RouteMeta() {
+    var extras: Bundle? = null
+    var flags = -1
+        private set
     /**
      * 动画
      */
     //新版 md风格
-    private var optionsCompat: Bundle? = null
+    var optionsBundle: Bundle? = null
+        private set
     //老版
-    private var enterAnim: Int = 0
-    private var exitAnim: Int = 0
+    var enterAnim: Int = 0
+        private set
+    var exitAnim: Int = 0
+        private set
 
     // 服务
     var service: IService? = null
 
-    constructor(path: String, group: String) : this(null, null, null) {
-        this.path = path
-        this.group = group
+    constructor(path: String, group: String): this(path, group, null)
+
+    constructor(path: String, group: String, bundle: Bundle?): this() {
+        setPath(path)
+        setGroup(group)
+        this.extras = bundle ?: Bundle()
     }
 
-    constructor(path: String, group: String, bundle:Bundle) : this(path, group) {
-        this.bundle = bundle
-    }
-
-    fun getExtras(): Bundle {
-        return bundle!!
-    }
-
-    fun getEnterAnim(): Int {
-        return enterAnim
-    }
-
-    fun getExitAnim(): Int {
-        return exitAnim
-    }
 
     /**
      * Intent.FLAG_ACTIVITY**
@@ -74,10 +50,6 @@ class Postcard constructor(type: Type?, route: Route?, element: Element?) :
     fun withFlags(flag: Int): Postcard {
         this.flags = flag
         return this
-    }
-
-    fun getFlags(): Int {
-        return flags
     }
 
     /**
@@ -101,145 +73,143 @@ class Postcard constructor(type: Type?, route: Route?, element: Element?) :
      */
     fun withOptionsCompat(compat: ActivityOptionsCompat?): Postcard {
         if (null != compat) {
-            this.optionsCompat = compat.toBundle()
+            this.optionsBundle = compat.toBundle()
         }
         return this
     }
 
-    fun withString(@Nullable key: String, @Nullable value: String): Postcard {
-        bundle?.putString(key, value)
+    fun withString(key: String?, value: String?): Postcard {
+        extras?.putString(key, value)
         return this
     }
 
-    fun withBoolean(@Nullable key: String, value: Boolean): Postcard {
-        bundle?.putBoolean(key, value)
+
+    fun withBoolean(key: String?, value: Boolean): Postcard {
+        extras?.putBoolean(key, value)
         return this
     }
+
 
     fun withShort(key: String?, value: Short): Postcard {
-        bundle?.putShort(key, value)
+        extras?.putShort(key, value)
         return this
     }
 
 
     fun withInt(key: String?, value: Int): Postcard {
-        bundle?.putInt(key, value)
+        extras?.putInt(key, value)
         return this
     }
 
 
     fun withLong(key: String?, value: Long): Postcard {
-        bundle?.putLong(key, value)
+        extras?.putLong(key, value)
         return this
     }
 
 
     fun withDouble(key: String?, value: Double): Postcard {
-        bundle?.putDouble(key, value)
+        extras?.putDouble(key, value)
         return this
     }
 
 
     fun withByte(key: String?, value: Byte): Postcard {
-        bundle?.putByte(key, value)
+        extras?.putByte(key, value)
         return this
     }
 
 
     fun withChar(key: String?, value: Char): Postcard {
-        bundle?.putChar(key, value)
+        extras?.putChar(key, value)
         return this
     }
 
 
     fun withFloat(key: String?, value: Float): Postcard {
-        bundle?.putFloat(key, value)
+        extras?.putFloat(key, value)
         return this
     }
 
 
     fun withParcelable(key: String?, value: Parcelable?): Postcard {
-        bundle?.putParcelable(key, value)
+        extras?.putParcelable(key, value)
         return this
     }
 
 
     fun withStringArray(key: String?, value: Array<String>?): Postcard {
-        bundle?.putStringArray(key, value)
+        extras?.putStringArray(key, value)
         return this
     }
 
 
     fun withBooleanArray(key: String?, value: BooleanArray): Postcard {
-        bundle?.putBooleanArray(key, value)
+        extras?.putBooleanArray(key, value)
         return this
     }
 
 
     fun withShortArray(key: String?, value: ShortArray): Postcard {
-        bundle?.putShortArray(key, value)
+        extras?.putShortArray(key, value)
         return this
     }
 
 
     fun withIntArray(key: String?, value: IntArray): Postcard {
-        bundle?.putIntArray(key, value)
+        extras?.putIntArray(key, value)
         return this
     }
 
 
     fun withLongArray(key: String?, value: LongArray): Postcard {
-        bundle?.putLongArray(key, value)
+        extras?.putLongArray(key, value)
         return this
     }
 
 
     fun withDoubleArray(key: String?, value: DoubleArray): Postcard {
-        bundle?.putDoubleArray(key, value)
+        extras?.putDoubleArray(key, value)
         return this
     }
 
 
     fun withByteArray(key: String?, value: ByteArray): Postcard {
-        bundle?.putByteArray(key, value)
+        extras?.putByteArray(key, value)
         return this
     }
 
 
     fun withCharArray(key: String?, value: CharArray): Postcard {
-        bundle?.putCharArray(key, value)
+        extras?.putCharArray(key, value)
         return this
     }
 
 
     fun withFloatArray(key: String?, value: FloatArray): Postcard {
-        bundle?.putFloatArray(key, value)
+        extras?.putFloatArray(key, value)
         return this
     }
 
 
     fun withParcelableArray(key: String?, value: Array<Parcelable>?): Postcard {
-        bundle?.putParcelableArray(key, value)
+        extras?.putParcelableArray(key, value)
         return this
     }
 
     fun withParcelableArrayList(key: String?, value: ArrayList<out Parcelable>?): Postcard {
-        bundle?.putParcelableArrayList(key, value)
+        extras?.putParcelableArrayList(key, value)
         return this
     }
 
     fun withIntegerArrayList(key: String?, value: ArrayList<Int>?): Postcard {
-        bundle?.putIntegerArrayList(key, value)
+        extras?.putIntegerArrayList(key, value)
         return this
     }
 
     fun withStringArrayList(key: String?, value: ArrayList<String>?): Postcard {
-        bundle?.putStringArrayList(key, value)
+        extras?.putStringArrayList(key, value)
         return this
-    }
-
-    fun getOptionsBundle(): Bundle {
-        return optionsCompat!!
     }
 
 
@@ -263,5 +233,6 @@ class Postcard constructor(type: Type?, route: Route?, element: Element?) :
     fun navigation(context: Context, requestCode: Int, callback: NavigationCallback): Any? {
         return SRouter.navigation(context, this, requestCode, callback)
     }
+
 
 }

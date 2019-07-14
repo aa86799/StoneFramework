@@ -115,8 +115,10 @@ object SRouter {
             RouteMeta.Type.ACTIVITY -> {
                 val curContext = context ?: mContext
                 val intent = Intent(curContext, postcard.destination)
-                intent.putExtras(postcard.getExtras())
-                val flags = postcard.getFlags()
+                if (postcard.extras != null) {
+                    intent.putExtras(postcard.extras!!)
+                }
+                val flags = postcard.flags
                 if (-1 != flags) {
                     intent.flags = flags
                 } else if (curContext !is Activity) {
@@ -126,14 +128,15 @@ object SRouter {
                     //可能需要返回码
                     if (requestCode!! > 0) {
                         ActivityCompat.startActivityForResult(
-                            curContext as Activity, intent, requestCode, postcard.getOptionsBundle())
+                            curContext as Activity, intent, requestCode, postcard.optionsBundle
+                        )
                     } else {
-                        ActivityCompat.startActivity(curContext!!, intent, postcard.getOptionsBundle())
+                        ActivityCompat.startActivity(curContext!!, intent, postcard.optionsBundle)
                     }
 
-                    if ((0 != postcard.getEnterAnim() || 0 != postcard.getExitAnim()) && curContext is Activity) {
+                    if ((0 != postcard.enterAnim || 0 != postcard.exitAnim) && curContext is Activity) {
                         //老版本
-                        curContext.overridePendingTransition(postcard.getEnterAnim(), postcard.getExitAnim())
+                        curContext.overridePendingTransition(postcard.enterAnim, postcard.exitAnim)
                     }
                     //跳转完成
                     callback?.onArrival(postcard)
