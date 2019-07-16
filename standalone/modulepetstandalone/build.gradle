@@ -13,10 +13,10 @@ android {
 
     defaultConfig {
         applicationId "com.stone.mptstandalone"
-        minSdkVersion 18
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion buildVersions.minSdkVersion
+        targetSdkVersion buildVersions.targetSdkVersion
+        versionCode buildVersions.versionCode
+        versionName buildVersions.versionName
 
         minSdkVersion buildVersions.minSdkVersion
         targetSdkVersion buildVersions.targetSdkVersion
@@ -28,7 +28,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
             }
         }
     }

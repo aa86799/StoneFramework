@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.stone.modulepetstandalone">
 
     <application
@@ -8,16 +9,17 @@
                  android:icon="@mipmap/ic_launcher"
                  android:roundIcon="@mipmap/ic_launcher_round"
                  android:supportsRtl="true"
+                 tools:replace="android:theme"
                  android:theme="@style/mpt_AppTheme">
 
-        <activity android:name="com.stone.module.pet.ui.activity.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/mpt_SplashTheme">
+        <activity android:name="com.stone.module.pet.ui.activity.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/mpt_SplashTheme" tools:replace="android:theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name="com.stone.module.pet.ui.activity.main.ActivityMain" android:screenOrientation="portrait"/>
+        <!--<activity android:name="com.stone.module.pet.ui.activity.main.ActivityMain" android:screenOrientation="portrait"/>-->
 
         <provider
                 android:name="androidx.core.content.FileProvider"

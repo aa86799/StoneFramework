@@ -14,11 +14,11 @@ import com.stone.module.pet.config.PetGlobalConfig
 class App : Application() {
 
     override fun onCreate() {
-        initARouter()
         super.onCreate()
 
         PetGlobalConfig.init(this)
 
+        initARouter()
     }
 
     private fun initARouter() {

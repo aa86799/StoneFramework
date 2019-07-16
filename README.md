@@ -23,3 +23,10 @@
     组件定义自己的 application-module，以便单独运行。
     使用 app 运行时，需要指定一个 launcher 的 Activity。
     常用三方组件的初始化，分别在具体的 application-module中写一份。组件自己的一些初始工作，写在相应的 xxGlobalConfig.init()中。
+    
+    
+# 插件化
+    
+    插件 apk，线上通过网络下载到 sdcard。
+    这里模拟, 将 taopiaopiao 生成的 apk，重命名为plugint.apk， push 到 sdcard/Download/ 。
+    
