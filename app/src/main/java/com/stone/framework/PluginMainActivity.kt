@@ -1,18 +1,19 @@
 package com.stone.framework
 
 import android.Manifest
+import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import android.os.Environment
-import android.os.Environment.getExternalStorageDirectory
-import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.LogUtils
-import com.stone.module.pet.util.RxJavaUtil
-import com.tbruyelle.rxpermissions2.Permission
+import com.stone.framework.plugin.ActivityThreadHookHelper
+import com.stone.framework.plugin.LoadedApkAppInfo
+import com.stone.framework.plugin.util.LoadApkResDir
 import com.tbruyelle.rxpermissions2.RxPermissions
 import java.io.*
 
@@ -26,6 +27,14 @@ import java.io.*
  */
 class PluginMainActivity : AppCompatActivity() {
 
+    private var apkPath: String? = null
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+
+        ActivityThreadHookHelper.doHandlerHook()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,13 +43,16 @@ class PluginMainActivity : AppCompatActivity() {
         PluginManager.setContext(this)
 
         reqPermission()
+
+
+        ActivityThreadHookHelper.doActivityStartHook(this)
     }
 
     fun reqPermission() {
         val rxPermissions = RxPermissions(this)
 
         //一个或多个权限，全部成功才成功；
-        rxPermissions.request(Manifest.permission.READ_PHONE_STATE)
+        rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             .subscribe({ permission ->
                 if (permission!!) {
                     //("用户给权限啦")
@@ -86,10 +98,14 @@ class PluginMainActivity : AppCompatActivity() {
         var os: FileOutputStream? = null
         try {
 
+            val dstFile = File(filePath)
+            if (dstFile.exists()) dstFile.delete()
+
             LogUtils.iTag("stone->", "加载插件${File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), name).path}")
 
             inputStream = FileInputStream(File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), name))
             os = FileOutputStream(filePath)
+
             var len = 0
             val buffer = ByteArray(1024)
             do {
@@ -98,12 +114,19 @@ class PluginMainActivity : AppCompatActivity() {
                     os.write(buffer, 0, len)
                 }
             } while (len != -1)
+            os.flush()
 
-            val f = File(filePath)
-            if (f.exists()) {//插件 apk 文件已经存在
-                Toast.makeText(this, "dex overwrite", Toast.LENGTH_SHORT).show()
+//            val dstFile = File(filePath)
+            if (dstFile.exists()) {//插件 apk 文件已经存在
+                Toast.makeText(this, "dex overwrite" + dstFile.length(), Toast.LENGTH_SHORT).show()
             }
-            PluginManager.loadPath(this) //加载，初始化 resource
+
+//            PluginManager.loadPath(this) //加载，初始化 resource
+
+            //初始化 插件 applicationInfo
+            LoadedApkAppInfo.hookLoadedApkInActivityThread(dstFile)
+            apkPath = filePath
+
         } catch (e: IOException) {
             e.printStackTrace()
         } finally {
@@ -118,8 +141,18 @@ class PluginMainActivity : AppCompatActivity() {
     }
 
     fun openPlugin(view: View) {
-        ARouter.getInstance().build("/app/proxy")
-            .withString("className", PluginManager.packageInfo!!.activities[0].name)
-            .navigation()
+
+//        LoadApkResDir.switchToPlugResources(apkPath)
+
+//        ARouter.getInstance().build("/app/proxy")
+//            .withString("className", PluginManager.packageInfo!!.activities[0].name)
+//            .navigation()
+
+        val intent = Intent()
+        intent.component = ComponentName("com.stone.taopiaopiao", "com.stone.taopiaopiao.ActivityMain")
+        startActivity(intent)
+
+        LoadApkResDir.switchToPlugResources(applicationInfo.sourceDir)
+
     }
 }

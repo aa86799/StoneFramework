@@ -3,6 +3,7 @@ package com.stone.framework
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
 import com.stone.module.pet.config.PetGlobalConfig
+import com.stone.module.pet.config.PetGlobalConfig.app
 
 /**
  * desc:
@@ -13,6 +14,13 @@ import com.stone.module.pet.config.PetGlobalConfig
  */
 class App : Application() {
 
+    private val app = this
+
+    companion object {
+        fun instance(): Application? {
+            return app
+        }
+    }
     override fun onCreate() {
         super.onCreate()
 

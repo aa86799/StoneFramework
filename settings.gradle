@@ -1,1 +1,1 @@
-include ':app', ':lib_common', ':module_pet', ':lib_compile', ':lib_annotations', ':lib_router', ':plugin', ':taopiaopiao', 'standalone:modulepetstandalone'
+include ':app', ':lib_common', ':module_pet', ':lib_compile', ':lib_annotations', ':lib_router', ':taopiaopiao', 'standalone:modulepetstandalone'

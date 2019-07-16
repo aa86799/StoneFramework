@@ -1,6 +1,8 @@
 package com.stone.taopiaopiao
 
+import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * desc:
@@ -9,7 +11,7 @@ import android.os.Bundle
  * blog:    https://stone.blog.csdn.net
  * time:    2019-07-15 10:27
  */
-class ActivityMain : ActivityBase() {
+class ActivityMain : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

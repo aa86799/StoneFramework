@@ -62,6 +62,5 @@ dependencies {
     implementation project(":lib_common")
     implementation project(":lib_router")
     implementation project(":module_pet")
-    implementation project(path: ':plugin')
 
 }
